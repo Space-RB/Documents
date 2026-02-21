@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Hub · TDS Macro API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-glow: rgba(139,92,246,0.5);
+            --bg-dark: #05050f;
+            --bg-card: rgba(10,10,20,0.85);
+            --border: rgba(139,92,246,0.15);
+            --border-hover: rgba(139,92,246,0.4);
+            --text: #fff;
+            --text-muted: #6b7280;
+            --text-secondary: #9ca3af;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-blue: #3b82f6;
+            --code-bg: rgba(0,0,0,0.4);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--primary); color: #fff; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-dark); border-radius: 6px; }
+
+        .bg-animation { 
+            position: fixed; 
+            inset: 0; 
+            z-index: 0; 
+            pointer-events: none;
+            filter: blur(2px);
+        }
+        .bg-gradient {
+            position: absolute; 
+            border-radius: 50%; 
+            opacity: 0.35;
+            mix-blend-mode: screen;
+            will-change: transform;
+        }
+        .bg-gradient-1 { 
+            width: 1000px; 
+            height: 1000px; 
+            background: radial-gradient(circle, rgba(139,92,246,0.45), transparent 70%); 
+            top: -400px; 
+            left: -300px; 
+            animation: float1 25s infinite alternate ease-in-out;
+        }
+        .bg-gradient-2 { 
+            width: 800px; 
+            height: 800px; 
+            background: radial-gradient(circle, rgba(59,130,246,0.35), transparent 70%); 
+            bottom: -300px; 
+            right: -250px;
+            animation: float2 30s infinite alternate ease-in-out;
+        }
+        .bg-gradient-3 { 
+            width: 700px; 
+            height: 700px; 
+            background: radial-gradient(circle, rgba(236,72,153,0.3), transparent 70%); 
+            top: 20%; 
+            left: 40%;
+            animation: float3 22s infinite alternate ease-in-out;
+        }
+        @keyframes float1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.15); }
+        }
+        @keyframes float2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-70px, -60px) scale(1.2); }
+        }
+        @keyframes float3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -70px) scale(1.1); }
+        }
+        .stars { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+        }
+        .star { 
+            position: absolute; 
+            background: #fff; 
+            border-radius: 50%;
+            animation: twinkle 4s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.3); }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 0 50px; height: 80px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(5,5,15,0.7); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); transition: all 0.3s;
+        }
+        nav.scrolled { height: 65px; background: rgba(5,5,15,0.85); backdrop-filter: blur(12px); }
+        .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .logo-icon {
+            width: 46px; height: 46px; border-radius: 14px; overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900;
+            background: linear-gradient(135deg,#fff, var(--primary-light));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-center { position: absolute; left: 50%; transform: translateX(-50%); }
+        .nav-links { display: flex; gap: 50px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 700;
+            letter-spacing: 1.5px; transition: color 0.3s; text-transform: uppercase;
+            position: relative; padding: 8px 0;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-pink));
+            transition: width 0.3s; border-radius: 2px;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .discord-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: rgba(88, 101, 242, 0.2);
+            border: 1px solid rgba(88, 101, 242, 0.5);
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .discord-link:hover {
+            background: rgba(88, 101, 242, 0.35);
+            border-color: var(--primary);
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; padding: 8px; }
+        .mobile-nav {
+            display: none; position: fixed; inset: 0; background: rgba(5,5,15,0.98); backdrop-filter: blur(10px); z-index: 999;
+            flex-direction: column; justify-content: center; align-items: center; gap: 40px;
+            opacity: 0; visibility: hidden; transition: all 0.3s;
+        }
+        .mobile-nav.active { opacity: 1; visibility: visible; }
+        .mobile-nav a { color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; font-family: 'Orbitron', sans-serif; }
+        .mobile-nav-close { position: absolute; top: 25px; right: 25px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; }
+
+        .doc-wrapper {
+            position: relative; z-index: 5; max-width: 1300px; margin: 0 auto;
+            padding: 140px 30px 80px;
+        }
+
+        .doc-header {
+            text-align: center; margin-bottom: 40px; animation: fadeIn 0.8s ease;
+        }
+        .doc-badge {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05));
+            border: 1px solid rgba(139,92,246,0.25); padding: 12px 30px; border-radius: 100px;
+            font-size: 11px; font-weight: 700; color: var(--primary-light);
+            margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px;
+            backdrop-filter: blur(2px);
+        }
+        .doc-badge-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 12px #10b981; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.2)} }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .doc-title {
+            font-family: 'Orbitron', sans-serif; font-size: clamp(48px, 12vw, 100px);
+            font-weight: 900; line-height: 1; letter-spacing: -4px;
+            text-shadow: 0 0 40px rgba(139,92,246,0.3);
+        }
+        .doc-title-main {
+            background: linear-gradient(135deg, #fff 20%, var(--primary-light) 80%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+
+        .media-row {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
+            margin-bottom: 60px; align-items: flex-start;
+        }
+        .video-demo {
+            flex: 1 1 600px;
+            max-width: 700px;
+        }
+        .video-demo iframe {
+            width: 100%; 
+            height: 380px;
+            border-radius: 30px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            border: 1px solid var(--border-hover);
+        }
+        .premium-shop {
+            flex: 0 1 300px;
+            background: rgba(15,15,25,0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(139,92,246,0.4);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .premium-shop h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .buy-buttons {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .buy-btn {
+            background: rgba(25,25,40,0.8);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 20px; padding: 18px 20px;
+            text-decoration: none; color: #fff; display: flex; align-items: center; gap: 15px;
+            transition: all 0.2s;
+        }
+        .buy-btn:hover { 
+            border-color: var(--primary); 
+            background: rgba(139,92,246,0.15);
+            transform: translateY(-2px);
+        }
+        .buy-btn-icon { font-size: 28px; width: 40px; text-align: center; }
+        .buy-btn-title { font-weight: 700; font-size: 16px; }
+        .buy-btn-subtitle { font-size: 11px; color: var(--text-muted); display: block; }
+
+        .doc-section {
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: 32px;
+            margin-bottom: 35px; 
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5); 
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .doc-section:hover {
+            border-color: var(--border-hover);
+            background: rgba(15,15,30,0.9);
+        }
+        .doc-section-header {
+            padding: 25px 35px; background: rgba(139,92,246,0.06); border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+        }
+        .doc-section-header h2 {
+            font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 700;
+            background: linear-gradient(135deg, #fff, var(--primary-light));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .doc-section-header span { font-size: 32px; opacity: 0.8; }
+        .doc-section-body { padding: 30px 35px; }
+
+        /* code blocks */
+        .code-block {
+            background: var(--code-bg); border: 1px solid rgba(139,92,246,0.2);
+            border-radius: 18px; padding: 18px 25px; margin: 20px 0;
+            font-family: 'Fira Code', monospace; font-size: 14px; color: #bbd7fb;
+            overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .inline-code {
+            background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3);
+            padding: 3px 10px; border-radius: 30px; font-family: 'Fira Code', monospace;
+            font-size: 13px; color: var(--primary-light); white-space: nowrap;
+        }
+        .param-table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            font-size: 15px;
+        }
+        .param-table th {
+            text-align: left; padding: 15px 10px 10px 0; font-weight: 700;
+            color: var(--primary-light); text-transform: uppercase; font-size: 12px;
+            letter-spacing: 1px; border-bottom: 1px solid var(--border);
+        }
+        .param-table td {
+            padding: 12px 10px 12px 0; border-bottom: 1px solid rgba(255,255,255,0.02);
+            color: var(--text-secondary);
+        }
+        .param-table td:first-child { font-family: 'Fira Code', monospace; color: #fff; font-weight: 500; }
+        .param-table td:nth-child(2) { color: var(--primary-light); }
+        .note {
+            background: rgba(245,158,11,0.08); border-left: 4px solid var(--warning);
+            padding: 20px 25px; border-radius: 16px; margin: 25px 0;
+            color: var(--text-secondary);
+        }
+        .tip {
+            background: rgba(16,185,129,0.08); border-left: 4px solid var(--success);
+            padding: 20px 25px; border-radius: 16px; margin: 25px 0;
+        }
+        .hr-divider {
+            height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 40px 0 30px; opacity: 0.4;
+        }
+        .copyright-bar {
+            text-align: center; margin-top: 70px; padding: 25px;
+            font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border);
+            font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 2px;
+            white-space: pre;
+        }
+        .copyright-bar span { color: var(--primary-light); }
+
+        /* scroll top */
+        .scroll-top-btn {
+            position: fixed; bottom: 25px; right: 25px; width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none; border-radius: 14px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; font-size: 18px; color: #fff;
+            box-shadow: 0 10px 35px var(--primary-glow); transition: all 0.3s;
+            z-index: 999; opacity: 0; visibility: hidden; transform: translateY(20px);
+        }
+        .scroll-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        @media(max-width:1024px) {
+            nav { padding: 0 30px; }
+        }
+        @media(max-width:768px) {
+            nav { padding: 0 20px; height: 70px; }
+            .nav-center { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-nav { display: flex; }
+            .doc-wrapper { padding: 120px 20px 60px; }
+            .doc-section-header { padding: 20px 25px; }
+            .doc-section-body { padding: 20px 25px; }
+            .code-block { font-size: 12px; padding: 15px; }
+            .param-table { font-size: 13px; }
+            .inline-code { font-size: 11px; white-space: normal; }
+            .media-row { flex-direction: column; }
+            .video-demo iframe { height: 250px; }
+        }
+        @media(max-width:400px) {
+            .doc-title { font-size: 48px; letter-spacing: -2px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-gradient bg-gradient-3"></div>
+        <div class="stars" id="stars"></div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+        <a href="#howto">How to Use</a>
+        <a href="#core">Core</a>
+        <a href="#setoption">Option</a>
+        <a href="#ability">Ability</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#lobby">Lobby</a>
+        <a href="#snippet">Snippet</a>
+    </div>
+
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon"><img src="https://cdn.discordapp.com/icons/1406607908577218681/15c37683ed180644b5ac11d91f49022d.webp?size=1024" alt="Space Hub"></div>
+            <span class="logo-text">SPACE HUB</span>
+        </a>
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="#howto">How to</a></li>
+                <li><a href="#core">Core</a></li>
+                <li><a href="#setoption">Option</a></li>
+                <li><a href="#ability">Ability</a></li>
+                <li><a href="#lobby">Lobby</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="https://discord.gg/spacerb" class="discord-link" target="_blank">▶ Discord</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <div class="doc-wrapper">
+        <div class="doc-header">
+            <div class="doc-badge">
+                <div class="doc-badge-dot"></div>
+                <span>TDS AUTOMATION API · SPACE EDITION</span>
+            </div>
+            <h1 class="doc-title">
+                <span class="doc-title-main">Macro Recorder - API</span>
+            </h1>
+            <div class="doc-description">
+                Complete reference for Tower Defense Simulator automation. API version 2.0 · Premium required
+            </div>
+        </div>
+
+        <div class="media-row">
+            <div class="video-demo">
+                <iframe width="600" height="340" src="https://www.youtube.com/embed/fcn9Ub-tvoI?si=Fi_cra4wT_wxO2qC&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="premium-shop">
+                <h3>✨ SHOP</h3>
+                <div class="buy-buttons">
+                    <a href="https://funpay.com/users/6503408/" target="_blank" class="buy-btn">
+                        <span class="buy-btn-icon">🛒</span>
+                        <div><span class="buy-btn-title">FunPay</span><span class="buy-btn-subtitle">Agusha & Trusted sellers</span></div>
+                    </a>
+                    <a href="https://www.roblox.com/games/117250772119239/Space-Verification" target="_blank" class="buy-btn">
+                        <span class="buy-btn-icon">🎮</span>
+                        <div><span class="buy-btn-title">Robux</span><span class="buy-btn-subtitle">Join Roblox game & verify</span></div>
+                    </a>
+                    <a href="https://robloxcheatz.com/product?id=e4d3c8eb-9dfb-473b-9b1d-10979d35cfd1&ref=space" target="_blank" class="buy-btn">
+                        <span class="buy-btn-icon">🌐</span>
+                        <div><span class="buy-btn-title">RobloxCheatz</span><span class="buy-btn-subtitle">Cards, PayPal, crypto</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="howto" class="doc-section">
+            <div class="doc-section-header">
+                <span>📘</span>
+                <h2>How to Use</h2>
+            </div>
+            <div class="doc-section-body">
+                <p>1. Obtain your premium key from the store.</p>
+                <p>2. Load the recorder script in your executor:</p>
+                <div class="code-block">
+script_key="your_premium_key";
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/loader.lua"))()
+                </div>
+                <p>3. Configure global settings (_G) and use TDS methods to build your strategy.</p>
+                <p>4. For 24/7 auto-farm, place in autoexec folder with _G.AutoRejoin = true.</p>
+            </div>
+        </section>
+
+        <section class="doc-section">
+            <div class="doc-section-header">
+                <span>📁</span>
+                <h2>How to use record files?</h2>
+            </div>
+            <div class="doc-section-body">
+                <p><span class="inline-code">*executor/workspace/Space-Hub/Games/TDS V2/script.lua</span></p>
+                <p>put <span class="inline-code">script.lua</span> in <span class="inline-code">*executor/autoexec</span> or use just like script</p>
+                <div class="code-block">
+-- Example: load your recorded macro
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
+                </div>
+            </div>
+        </section>
+
+        <section id="core" class="doc-section">
+            <div class="doc-section-header">
+                <span>⚙️</span>
+                <h2>CORE ENGINE METHODS + GLOBAL CONFIG (_G)</h2>
+            </div>
+            <div class="doc-section-body">
+                <h3 style="color:var(--primary-light); margin-bottom:15px;">🌐 Global Configuration (set before loading)</h3>
+                <table class="param-table">
+                    <tr><th>Variable</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>_G.AutoPickups</td><td>bool</td><td>Auto‑collect SnowCharms / Lorebooks</td></tr>
+                    <tr><td>_G.AutoSkip</td><td>bool</td><td>Automatically vote to skip waves</td></tr>
+                    <tr><td>_G.AutoChain</td><td>bool</td><td>Cycle Commander "Call Of Arms"</td></tr>
+                    <tr><td>_G.AutoDJ</td><td>bool</td><td>Auto‑activate DJ Booth "Drop The Beat"</td></tr>
+                    <tr><td>_G.AutoNecro</td><td>bool</td><td>Auto‑activate Necromancer "Raise The Dead"</td></tr>
+                    <tr><td>_G.AutoMercenary</td><td>bool</td><td>Auto Air‑Drop from Mercenary Base (uses _G.MercenaryPath)</td></tr>
+                    <tr><td>_G.AutoMilitary</td><td>bool</td><td>Auto Airstrike from Military Base (uses _G.MilitaryPath)</td></tr>
+                    <tr><td>_G.AntiLag</td><td>bool</td><td>Remove effects/projectiles to reduce lag</td></tr>
+                    <tr><td>_G.AutoRejoin</td><td>bool</td><td>24/7 loop: auto‑rejoin after match + webhook logging</td></tr>
+                    <tr><td>_G.SendWebhook</td><td>bool</td><td>Send match results to Discord</td></tr>
+                    <tr><td>_G.Webhook</td><td>string</td><td>Discord webhook URL</td></tr>
+                </table>
+
+                <div class="hr-divider"></div>
+                <h3 style="color:var(--primary-light); margin:30px 0 15px;">⚔️ In-Game Core Methods</h3>
+                <table class="param-table">
+                    <tr><th>Method</th><th>Parameters</th><th>Description</th></tr>
+                    <tr><td>TDS:Place(name, x, y, z)</td><td>name, coordinates</td><td>Place tower, returns index (1‑based).</td></tr>
+                    <tr><td>TDS:Upgrade(idx, path)</td><td>index, path (1/2, default 1)</td><td>Upgrade tower.</td></tr>
+                    <tr><td>TDS:Sell(idx, reqWave)</td><td>index, optional wave requirement</td><td>Sell tower, removes from list.</td></tr>
+                    <tr><td>TDS:SellAll(reqWave)</td><td>optional wave</td><td>Sell all placed towers.</td></tr>
+                    <tr><td>TDS:SetTarget(idx, mode, reqWave)</td><td>"First","Strong","Last","Random"</td><td>Set targeting mode.</td></tr>
+                    <tr><td>TDS:GetWave()</td><td>—</td><td>Returns current wave number.</td></tr>
+                    <tr><td>TDS:VoteSkip(start, end)</td><td>start wave, optional end wave</td><td>Auto vote‑skip from wave start to end.</td></tr>
+                    <tr><td>TDS:UnlockTimeScale()</td><td>—</td><td>Unlock timescale tickets.</td></tr>
+                    <tr><td>TDS:TimeScale(val)</td><td>0.5, 1, 1.5, 2</td><td>Cycle to desired speed.</td></tr>
+                    <tr><td>TDS:Ready()</td><td>—</td><td>Ready up during match intermission.</td></tr>
+                </table>
+                <div class="code-block">
+_G.AutoPickups = true
+_G.AutoSkip = true
+_G.AutoRejoin = true
+
+local TDS = loadstring(game:HttpGet("...Library.lua"))()
+TDS:Place("Scout", 0.29, -6.36, 17.00)  -- normal placement
+TDS:Upgrade(1)
+                </div>
+            </div>
+        </section>
+
+        <section id="setoption" class="doc-section">
+            <div class="doc-section-header">
+                <span>🔧</span>
+                <h2>TDS:SetOption</h2>
+            </div>
+            <div class="doc-section-body">
+                <p><span class="inline-code">TDS:SetOption(index, "OptionName", "Value", requiredWave)</span></p>
+                <table class="param-table">
+                    <tr><th>Tower</th><th>Option</th><th>Values</th></tr>
+                    <tr><td>Mercenary Base</td><td>"Unit 1" / "Unit 2" / "Unit 3"</td><td>"Grenadier","Rifleman","Riot Guard","Field Medic"</td></tr>
+                    <tr><td>Trapper</td><td>"Trap"</td><td>"Spike" or "Landmine"</td></tr>
+                    <tr><td>DJ Booth</td><td>"Track"</td><td>"Green","Red","Purple"</td></tr>
+                </table>
+                <div class="code-block">
+TDS:SetOption(1, "Unit 1", "Grenadier")   -- Mercenary Base
+TDS:SetOption(2, "Trap", "Landmine")      -- Trapper
+TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10
+                </div>
+            </div>
+        </section>
+
+        <section id="ability" class="doc-section">
+            <div class="doc-section-header">
+                <span>⚡</span>
+                <h2>TDS:Ability — special powers</h2>
+            </div>
+            <div class="doc-section-body">
+                <p><span class="inline-code">TDS:Ability(index, "AbilityName", dataTable, loop)</span></p>
+                <table class="param-table">
+                    <tr><th>Tower</th><th>Ability</th><th>Data format</th></tr>
+                    <tr><td>Commander</td><td>"Call Of Arms" / "Support Caravan"</td><td>no data</td></tr>
+                    <tr><td>DJ Booth</td><td>"Drop The Beat"</td><td>no data</td></tr>
+                    <tr><td>Medic</td><td>"Ubercharge"</td><td>no data</td></tr>
+                    <tr><td>Hacker</td><td>"Hologram Tower"</td><td><span class="inline-code">{ towerToClone = index, towerPosition = Vector3 }</span></td></tr>
+                    <tr><td>Pursuit</td><td>"Patrol"</td><td><span class="inline-code">{ ["position"] = Vector3 }</span></td></tr>
+                    <tr><td>Gatling Gun</td><td>"FPS"</td><td><span class="inline-code">{ ["enabled"] = true }</span></td></tr>
+                    <tr><td>Brawler</td><td>"Reposition"</td><td><span class="inline-code">{ ["position"] = Vector3 }</span></td></tr>
+                    <tr><td>Mercenary/Military</td><td>"Air‑Drop"/"Airstrike"</td><td><span class="inline-code">{ pathName = 1, dist = number, directionCFrame = CFrame.new() }</span></td></tr>
+                </table>
+                <div class="code-block">
+TDS:Ability(1, "Call Of Arms", {}, true)  -- Commander loop
+TDS:Ability(2, "Hologram Tower", { towerToClone = 3, towerPosition = Vector3.new(10,5,20) })
+TDS:Ability(4, "Air-Drop", { pathName = 1, dist = 100 })
+                </div>
+                <div class="tip">
+                    <strong>✧ tip</strong>: For Mercenary/Military, "dist" (Air‑Drop) and "pointToEnd" (Airstrike) control path position. 0 = spawn, max varies per map (Simplicity ~156).
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="doc-section">
+            <div class="doc-section-header">
+                <span>🚀</span>
+                <h2>ADVANCED · INFINITE LOOP & POSITIONING</h2>
+            </div>
+            <div class="doc-section-body">
+                <h3 style="margin:0 0 15px;">📁 Autoexec (24/7 AFK)</h3>
+                <p>Place the main script into your executor’s <span class="inline-code">Autoexec</span> folder and set <span class="inline-code">_G.AutoRejoin = true</span>.</p>
+                
+                <div class="hr-divider"></div>
+                <h3 style="color:var(--primary-light);">📐 Understanding dist / pointToEnd</h3>
+                <p><span class="inline-code">dist</span> (Mercenary Base) and <span class="inline-code">pointToEnd</span> (Military Base) define where ability triggers on path.</p>
+                <ul style="color: var(--text-secondary); margin-left: 25px;">
+                    <li><span class="inline-code">0</span> = enemy spawn</li>
+                    <li>higher value = further down the path</li>
+                    <li>max distance map‑dependent (Simplicity ~156, find yours with RemoteSpy)</li>
+                </ul>
+                <div class="code-block">
+-- Airstrike at ~70% of path
+TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })
+                </div>
+                <p><strong>🔍 How to find exact values:</strong> Use SimpleSpy / Hydroxide, manually use ability, locate RemoteFunction "Troops" with action "Abilities", check the 'Data' table for exact numbers.</p>
+                <div class="tip">
+                    <strong>💡 999 trick</strong>: if you set value to 999, ability often targets the very end.
+                </div>
+
+                <h3 style="color:var(--primary-light); margin-top:30px;">🛠 Utility & Internal Helpers</h3>
+                <table class="param-table">
+                    <tr><th>Method</th><th>Description</th></tr>
+                    <tr><td>TDS:GetGameState()</td><td>Returns "LOBBY" or "GAME".</td></tr>
+                    <tr><td>TDS:GetRewards()</td><td>Parses post‑game screen → table [Coins, Gems, XP, Wave, Time, Status, Others].</td></tr>
+                    <tr><td>TDS:RestartMacro()</td><td>Resets internal tower lists.</td></tr>
+                    <tr><td>TDS:RestartWithRejoin()</td><td>Resets and teleports back to game.</td></tr>
+                </table>
+                <div class="code-block">
+-- Print rewards after match
+local rewards = TDS:GetRewards()
+print("Coins:", rewards.Coins, "Gems:", rewards.Gems)
+                </div>
+
+                <div class="hr-divider"></div>
+                <h3 style="color:var(--primary-light);">⚠️ TROUBLESHOOTING & TIPS</h3>
+                <ul style="color: var(--text-secondary); margin-left: 25px;">
+                    <li><strong>ERROR "No HTTP Function":</strong> Your executor does not support 'request'. Use a supported executor like Wave, Xeno, Delta, or Arceus X.</li>
+                    <li><strong>TOWERS NOT PLACING:</strong> Ensure you have enough money. The script will retry automatically, but it cannot bypass your in-game cash balance.</li>
+                    <li><strong>INDEXING:</strong> Towers are indexed in the order they are placed (1, 2, 3...). If you sell Index 1, Index 2 remains 2; it does not shift down.</li>
+                    <li><strong>WEBHOOKS:</strong> Ensure your Webhook URL is the "Raw" Discord link. If the script freezes at the end of a match, check if your Webhook URL is valid.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="lobby" class="doc-section">
+            <div class="doc-section-header">
+                <span>🏠</span>
+                <h2>Lobby Methods</h2>
+            </div>
+            <div class="doc-section-body">
+                <table class="param-table">
+                    <tr><th>Method</th><th>Parameters</th><th>Description</th></tr>
+                    <tr><td>TDS:Mode(difficulty)</td><td>string (e.g. "Frost","Hardcore","Pizza Party")</td><td>Select matchmaking mode. Maps "Hardcore"→hardcore, "Pizza Party"→halloween, "Polluted"→polluted etc.</td></tr>
+                    <tr><td>TDS:Loadout(...)</td><td>list of tower names</td><td>Equip towers (unequips current). Returns success + results table.</td></tr>
+                    <tr><td>TDS:GameInfo(map, modifiers)</td><td>map name (string), modifiers table</td><td>Vote for map and modifiers. If VIP, uses override.</td></tr>
+                    <tr><td>TDS:StartGame()</td><td>—</td><td>Send "Ready" in lobby.</td></tr>
+                </table>
+                <div class="code-block">
+TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
+TDS:Mode("Frost")
+TDS:GameInfo("Honey Valley", {})   -- no modifiers
+TDS:StartGame()
+                </div>
+            </div>
+        </section>
+
+        <section id="snippet" class="doc-section">
+            <div class="doc-section-header">
+                <span>📋</span>
+                <h2>Complete Configuration Snippet</h2>
+            </div>
+            <div class="doc-section-body">
+                <div class="code-block" style="max-height:400px; overflow-y:auto;">
+_G.AutoPickups = true
+_G.AutoSkip = true
+_G.AutoChain = false
+_G.AutoDJ = false
+_G.AutoNecro = false
+_G.AutoMercenary = false
+_G.AutoMilitary = false
+_G.AntiLag = true
+_G.AutoRejoin = true
+_G.SendWebhook = false
+
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
+
+TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
+TDS:Mode("Frost")
+TDS:GameInfo("Honey Valley", {})
+
+TDS:UnlockTimeScale()
+TDS:TimeScale(2)
+
+TDS:Place("Scout", 0.2901, -6.3679, 17.0009, true)
+TDS:Place("Scout", -1.0073, -6.3679, 17.8993, true)
+TDS:Upgrade(1)
+TDS:SetOption(19, "Track", "Red")
+TDS:Ability(26, "Call Of Arms", nil, true)   -- loop
+                </div>
+            </div>
+        </section>
+
+        <div class="copyright-bar">
+╔══════════════════════════════════════════════════════════╗<br>
+    COPYRIGHT 2024-2026 SPACE HUB - ALL RIGHTS RESERVED<br>
+╚══════════════════════════════════════════════════════════╝
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn">↑</button>
+
+    <script>
+        (function() {
+            const isMobile = window.innerWidth <= 768;
+            const starsDiv = document.getElementById('stars');
+            const count = isMobile ? 25 : 80;
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement('div');
+                s.className = 'star';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top = Math.random() * 100 + '%';
+                const size = Math.random() * 3 + 1;
+                s.style.width = size + 'px';
+                s.style.height = size + 'px';
+                s.style.opacity = Math.random() * 0.6 + 0.2;
+                s.style.animationDelay = Math.random() * 4 + 's';
+                starsDiv.appendChild(s);
+            }
+        })();
+
+        const navbar = document.getElementById('navbar');
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    if (window.scrollY > 60) navbar.classList.add('scrolled');
+                    else navbar.classList.remove('scrolled');
+                    if (window.scrollY > 350) scrollBtn.classList.add('visible');
+                    else scrollBtn.classList.remove('visible');
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeBtn = document.getElementById('mobileNavClose');
+        menuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+        closeBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = this.getAttribute('href');
+                mobileNav.classList.remove('active');
+                if (id === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const el = document.querySelector(id);
+                if (el) {
+                    const top = el.getBoundingClientRect().top + window.scrollY - 70;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
