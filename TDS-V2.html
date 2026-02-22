@@ -277,14 +277,85 @@
         .doc-section-header span { font-size: 32px; opacity: 0.8; }
         .doc-section-body { padding: 30px 35px; }
 
-        /* code blocks */
-        .code-block {
-            background: var(--code-bg); border: 1px solid rgba(139,92,246,0.2);
-            border-radius: 18px; padding: 18px 25px; margin: 20px 0;
-            font-family: 'Fira Code', monospace; font-size: 14px; color: #bbd7fb;
-            overflow-x: auto; white-space: pre-wrap; word-break: break-word;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        /* macOS-style code blocks */
+        .script-box {
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: 24px;
+            overflow: hidden; 
+            margin: 20px 0;
         }
+        .script-box-header {
+            background: rgba(20,20,35,0.8); 
+            padding: 18px 25px; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--border);
+            gap: 20px; 
+            flex-wrap: wrap;
+        }
+        .script-header-left { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+        }
+        .script-dots { 
+            display: flex; 
+            gap: 8px; 
+        }
+        .script-dot { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+        }
+        .script-dot.red { 
+            background: #ff5f57; 
+        }
+        .script-dot.yellow { 
+            background: #febc2e; 
+        }
+        .script-dot.green { 
+            background: #28c840; 
+        }
+        .script-filename {
+            font-family: 'Fira Code', monospace; 
+            font-size: 13px; 
+            color: var(--text-muted);
+            padding: 6px 14px; 
+            background: rgba(255,255,255,0.03); 
+            border-radius: 8px;
+        }
+        .script-box-body { 
+            padding: 25px; 
+        }
+        .script-code-wrapper {
+            background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));
+            border: 1px solid rgba(139,92,246,0.15); 
+            border-radius: 16px; 
+            padding: 20px;
+        }
+        .script-code {
+            font-family: 'Fira Code', monospace; 
+            font-size: 13px; 
+            color: var(--primary-light);
+            background: transparent; 
+            border: none; 
+            width: 100%; 
+            resize: none; 
+            outline: none;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .script-code[rows="1"] {
+            white-space: nowrap;
+        }
+        .script-code[rows="auto"] {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
         .inline-code {
             background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3);
             padding: 3px 10px; border-radius: 30px; font-family: 'Fira Code', monospace;
@@ -326,8 +397,6 @@
         }
         .copyright-bar span { color: var(--primary-light); }
 
-        
-        
         /* scroll top */
         .scroll-top-btn {
             position: fixed; bottom: 25px; right: 25px; width: 48px; height: 48px;
@@ -350,8 +419,8 @@
             .doc-wrapper { padding: 120px 20px 60px; }
             .doc-section-header { padding: 20px 25px; }
             .doc-section-body { padding: 20px 25px; }
-            .code-block { font-size: 12px; padding: 15px; }
-            .param-table { font-size: 13px; }
+            .script-box-header { flex-direction: column; align-items: stretch; }
+            .script-filename { text-align: center; }
             .inline-code { font-size: 11px; white-space: normal; }
             .media-row { flex-direction: column; }
             .video-demo iframe { height: 250px; }
@@ -445,9 +514,23 @@
             <div class="doc-section-body">
                 <p>1. Obtain your premium key from the store.</p>
                 <p>2. Load the recorder script in your executor:</p>
-                <div class="code-block">
-script_key="your_premium_key";
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/loader.lua"))()
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">loader.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="1">script_key="your_premium_key";
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/loader.lua"))()</textarea>
+                        </div>
+                    </div>
                 </div>
                 <p>3. Configure global settings (_G) and use TDS methods to build your strategy.</p>
                 <p>4. For 24/7 auto-farm, place in autoexec folder with _G.AutoRejoin = true.</p>
@@ -462,9 +545,23 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
             <div class="doc-section-body">
                 <p><span class="inline-code">*executor/workspace/Space-Hub/Games/TDS V2/script.lua</span></p>
                 <p>put <span class="inline-code">script.lua</span> in <span class="inline-code">*executor/autoexec</span> or use just like script</p>
-                <div class="code-block">
--- Example: load your recorded macro
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">example.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="3">-- Example: load your recorded macro
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -506,14 +603,27 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
                     <tr><td>TDS:TimeScale(val)</td><td>0.5, 1, 1.5, 2</td><td>Cycle to desired speed.</td></tr>
                     <tr><td>TDS:Ready()</td><td>—</td><td>Ready up during match intermission.</td></tr>
                 </table>
-                <div class="code-block">
-_G.AutoPickups = true
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">config.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="6">_G.AutoPickups = true
 _G.AutoSkip = true
 _G.AutoRejoin = true
 
 local TDS = loadstring(game:HttpGet("...Library.lua"))()
-TDS:Place("Scout", 0.29, -6.36, 17.00)  -- normal placement
-TDS:Upgrade(1)
+TDS:Place("Scout", 0.29, -6.36, 17.00)  -- normal placement</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -531,10 +641,24 @@ TDS:Upgrade(1)
                     <tr><td>Trapper</td><td>"Trap"</td><td>"Spike" or "Landmine"</td></tr>
                     <tr><td>DJ Booth</td><td>"Track"</td><td>"Green","Red","Purple"</td></tr>
                 </table>
-                <div class="code-block">
-TDS:SetOption(1, "Unit 1", "Grenadier")   -- Mercenary Base
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">setoption.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="4">TDS:SetOption(1, "Unit 1", "Grenadier")   -- Mercenary Base
 TDS:SetOption(2, "Trap", "Landmine")      -- Trapper
-TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10
+TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -557,8 +681,20 @@ TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10
                     <tr><td>Brawler</td><td>"Reposition"</td><td><span class="inline-code">{ ["position"] = Vector3 }</span></td></tr>
                     <tr><td>Mercenary/Military</td><td>"Air‑Drop"/"Airstrike"</td><td><span class="inline-code">{ pathName = 1, dist = number, directionCFrame = CFrame.new() }</span></td></tr>
                 </table>
-                <div class="code-block">
-TDS:Ability(1, "Call Of Arms", {}, true) -- Commander (loop)
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">abilities.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="14">TDS:Ability(1, "Call Of Arms", {}, true) -- Commander (loop)
 TDS:Ability(2, "Support Caravan", {}) -- Commander (without loop)
 TDS:Ability(3, "Drop The Beat", {}) -- DJ Booth
 TDS:Ability(4, "Ubercharge", {}) -- Medic
@@ -569,7 +705,9 @@ TDS:Ability(8, "FPS", { ["enabled"] = false }) -- Gatling Gun (off)
 TDS:Ability(9, "Reposition", { ["position"] = Vector3.new(30,5,60) }) -- Brawler
 TDS:Ability(10, "Air-Drop", { ["pathName"] = 1, ["dist"] = 100 }) -- Military Base
 TDS:Ability(11, "Airstrike", { ["pathName"] = 1, ["pointToEnd"] = 150, ["directionCFrame"] = CFrame.new(0,0,0) }) -- Military Base
-TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simplicity max)
+TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simplicity max)</textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="tip">
                     <strong>✧ tip</strong>: For Mercenary/Military, "dist" (Air‑Drop) and "pointToEnd" (Airstrike) control path position. 0 = spawn, max varies per map (Simplicity ~156).
@@ -594,9 +732,23 @@ TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simp
                     <li>higher value = further down the path</li>
                     <li>max distance map‑dependent (Simplicity ~156, find yours with RemoteSpy)</li>
                 </ul>
-                <div class="code-block">
--- Airstrike at ~70% of path
-TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">airstrike.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="2">-- Airstrike at ~70% of path
+TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })</textarea>
+                        </div>
+                    </div>
                 </div>
                 <p><strong>🔍 How to find exact values:</strong> Use SimpleSpy / Hydroxide, manually use ability, locate RemoteFunction "Troops" with action "Abilities", check the 'Data' table for exact numbers.</p>
                 <div class="tip">
@@ -610,22 +762,50 @@ TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })
                     <tr><td>TDS:GetRewards()</td><td>Parses post‑game screen → table [Coins, Gems, XP, Wave, Time, Status, Others].</td></tr>
                     <tr><td>TDS:RestartWithRejoin()</td><td>Resets and teleports back to game.</td></tr>
                 </table>
-                <div class="code-block">
--- Print rewards after match
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">rewards.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="3">-- Print rewards after match
 local rewards = TDS:GetRewards()
-print("Coins:", rewards.Coins, "Gems:", rewards.Gems)
+print("Coins:", rewards.Coins, "Gems:", rewards.Gems)</textarea>
+                        </div>
+                    </div>
                 </div>
                 <h3 style="color:var(--primary-light);">⚠️ HOW TO SETUP AUTO CONTINUE MACRO AFTER LOSE?</h3>
                 <ul style="color: var(--text-secondary); margin-left: 25px;">
                     <li><strong>1.:</strong> Upload your script on github.</li>
                     <li><strong>2.</strong> Get Raw to your script.</li>
                 </ul>
-                <div class="code-block">
--- [[ END OF STRATEGY ]]
-TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">restart.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="2">-- [[ END OF STRATEGY ]]
+TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="tip">
-                    <strong>Why you teleported to lobby?</strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.</li>
+                    <strong>Why you teleported to lobby?</strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.
                 </div>
 
                 <div class="hr-divider"></div>
@@ -652,11 +832,25 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")
                     <tr><td>TDS:GameInfo(map, modifiers)</td><td>map name (string), modifiers table</td><td>Vote for map and modifiers. If VIP, uses override.</td></tr>
                     <tr><td>TDS:StartGame()</td><td>—</td><td>Send "Ready" in lobby.</td></tr>
                 </table>
-                <div class="code-block">
-TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">lobby.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="4">TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
 TDS:Mode("Frost")
 TDS:GameInfo("Honey Valley", {})   -- no modifiers
-TDS:StartGame()
+TDS:StartGame()</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -667,8 +861,20 @@ TDS:StartGame()
                 <h2>Complete Configuration Snippet</h2>
             </div>
             <div class="doc-section-body">
-                <div class="code-block" style="max-height:400px; overflow-y:auto;">
-_G.AutoPickups = true
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">complete_config.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="19" style="white-space: pre; overflow-x: auto;">_G.AutoPickups = true
 _G.AutoSkip = true
 _G.AutoChain = false
 _G.AutoDJ = false
@@ -692,7 +898,9 @@ TDS:Place("Scout", 0.2901, -6.3679, 17.0009, true)
 TDS:Place("Scout", -1.0073, -6.3679, 17.8993, true)
 TDS:Upgrade(1)
 TDS:SetOption(19, "Track", "Red")
-TDS:Ability(26, "Call Of Arms", nil, true)   -- loop
+TDS:Ability(26, "Call Of Arms", nil, true)   -- loop</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
