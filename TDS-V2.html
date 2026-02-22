@@ -326,6 +326,8 @@
         }
         .copyright-bar span { color: var(--primary-light); }
 
+        
+        
         /* scroll top */
         .scroll-top-btn {
             position: fixed; bottom: 25px; right: 25px; width: 48px; height: 48px;
@@ -612,6 +614,18 @@ TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })
 -- Print rewards after match
 local rewards = TDS:GetRewards()
 print("Coins:", rewards.Coins, "Gems:", rewards.Gems)
+                </div>
+                <h3 style="color:var(--primary-light);">⚠️ HOW TO SETUP AUTO CONTINUE MACRO AFTER LOSE?</h3>
+                <ul style="color: var(--text-secondary); margin-left: 25px;">
+                    <li><strong>1.:</strong> Upload your script on github.</li>
+                    <li><strong>2.</strong> Get Raw to your script.</li>
+                </ul>
+                <div class="code-block">
+-- [[ END OF STRATEGY ]]
+TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")
+                </div>
+                <div class="tip">
+                    <strong>Why you teleported to lobby?</strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.</li>
                 </div>
 
                 <div class="hr-divider"></div>
