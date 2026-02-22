@@ -806,6 +806,35 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
                         </div>
                     </div>
                 </div>
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <div class="script-header-left">
+                            <div class="script-dots">
+                                <div class="script-dot red"></div>
+                                <div class="script-dot yellow"></div>
+                                <div class="script-dot green"></div>
+                            </div>
+                            <span class="script-filename">your_script_example.lua</span>
+                        </div>
+                    </div>
+                    <div class="script-box-body">
+                        <div class="script-code-wrapper">
+                            <textarea class="script-code" readonly rows="10">-- [[ START STRATEGY ]]
+TDS:Loadout("Assassin", "Ace Pilot", "Scout", "Commander", "Trapper")
+TDS:Mode("Easy")
+TDS:GameInfo("Grass Isle", {})
+
+TDS:Place("Assassin", 9.94, 1.00, -32.01) -- Index: 1
+TDS:Place("Assassin", 11.68, 1.00, -30.29) -- Index: 2
+TDS:Sell(1, 6) -- Wave 6
+-- [[ END OF STRATEGY ]]
+TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="warn">
+                    <strong>DO NOT </strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.
+                </div>
                 <div class="tip">
                     <strong>Why you teleported to lobby?</strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.
                 </div>
@@ -876,7 +905,7 @@ TDS:StartGame()</textarea>
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="19" style="white-space: pre; overflow-x: auto;">_G.AutoPickups = true
+                            <textarea class="script-code" readonly rows="25" style="white-space: pre; overflow-x: auto;">_G.AutoPickups = true
 _G.AutoSkip = true
 _G.AutoChain = false
 _G.AutoDJ = false
