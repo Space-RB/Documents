@@ -556,9 +556,18 @@ TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10
                     <tr><td>Mercenary/Military</td><td>"Air‑Drop"/"Airstrike"</td><td><span class="inline-code">{ pathName = 1, dist = number, directionCFrame = CFrame.new() }</span></td></tr>
                 </table>
                 <div class="code-block">
-TDS:Ability(1, "Call Of Arms", {}, true)  -- Commander loop
-TDS:Ability(2, "Hologram Tower", { towerToClone = 3, towerPosition = Vector3.new(10,5,20) })
-TDS:Ability(4, "Air-Drop", { pathName = 1, dist = 100 })
+TDS:Ability(1, "Call Of Arms", {}, true) -- Commander (loop)
+TDS:Ability(2, "Support Caravan", {}) -- Commander (without loop)
+TDS:Ability(3, "Drop The Beat", {}) -- DJ Booth
+TDS:Ability(4, "Ubercharge", {}) -- Medic
+TDS:Ability(5, "Hologram Tower", { towerToClone = 6, towerPosition = Vector3.new(25,10,30) }) -- Hacker
+TDS:Ability(7, "Patrol", { ["position"] = Vector3.new(15,5,45) }) -- Pursuit
+TDS:Ability(8, "FPS", { ["enabled"] = true }) -- Gatling Gun (on)
+TDS:Ability(8, "FPS", { ["enabled"] = false }) -- Gatling Gun (off)
+TDS:Ability(9, "Reposition", { ["position"] = Vector3.new(30,5,60) }) -- Brawler
+TDS:Ability(10, "Air-Drop", { ["pathName"] = 1, ["dist"] = 100 }) -- Military Base
+TDS:Ability(11, "Airstrike", { ["pathName"] = 1, ["pointToEnd"] = 150, ["directionCFrame"] = CFrame.new(0,0,0) }) -- Military Base
+TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simplicity max)
                 </div>
                 <div class="tip">
                     <strong>✧ tip</strong>: For Mercenary/Military, "dist" (Air‑Drop) and "pointToEnd" (Airstrike) control path position. 0 = spawn, max varies per map (Simplicity ~156).
