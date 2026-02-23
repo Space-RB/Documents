@@ -819,11 +819,9 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="10">-- [[ START STRATEGY ]]
-TDS:Loadout("Assassin", "Ace Pilot", "Scout", "Commander", "Trapper")
-TDS:Mode("Easy")
-TDS:GameInfo("Grass Isle", {})
-
+                            <textarea class="script-code" readonly rows="10">-- [[ INITIALIZE LIBRARY ]]
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
+-- [[ START STRATEGY ]]
 TDS:Place("Assassin", 9.94, 1.00, -32.01) -- Index: 1
 TDS:Place("Assassin", 11.68, 1.00, -30.29) -- Index: 2
 TDS:Sell(1, 6) -- Wave 6
@@ -834,6 +832,9 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
                 </div>
                 <div class="tip">
                     <strong>YOUR SCRIPT ON GITHUB MUST BE ONLY AFTER</strong>: <span class="inline-code">START STRATEGY</span>.
+                </div>
+                <div class="tip">
+                    <strong>YOU DON'T NEED TO HAVE</strong>: <span class="inline-code">TDS:Loadout()</span> <span class="inline-code">TDS:Mode()</span> <span class="inline-code">TDS:GameInfo()</span>.
                 </div>
                 <div class="tip">
                     <strong>Why you teleported to lobby?</strong>: Make sure you turn off <span class="inline-code">_G.AutoRejoin = false</span>.
