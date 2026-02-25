@@ -23,7 +23,11 @@
             --warning: #f59e0b;
             --accent-pink: #ec4899;
             --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
             --code-bg: rgba(0,0,0,0.4);
+            --free-badge: #4b5563;
+            --premium-badge: #fbbf24;
+            --beta-badge: #3b82f6;
         }
         html { scroll-behavior: smooth; }
         body {
@@ -169,7 +173,7 @@
 
         .doc-wrapper {
             position: relative; z-index: 5; max-width: 1300px; margin: 0 auto;
-            padding: 140px 30px 80px;
+            padding: 140px 30px 60px;
         }
 
         .doc-header {
@@ -198,9 +202,10 @@
             display: inline;
         }
 
+        /* Увеличенное видео */
         .media-row {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
-            margin-bottom: 60px; align-items: flex-start;
+            margin-bottom: 50px; align-items: flex-start;
         }
         .video-demo {
             flex: 1 1 600px;
@@ -208,7 +213,7 @@
         }
         .video-demo iframe {
             width: 100%; 
-            height: 380px;
+            height: 400px; /* Увеличено с 260px до 400px */
             border-radius: 30px; 
             box-shadow: 0 25px 50px rgba(0,0,0,0.7);
             border: 1px solid var(--border-hover);
@@ -219,27 +224,28 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(139,92,246,0.4);
             border-radius: 30px;
-            padding: 25px;
+            padding: 18px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         .premium-shop h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
+            font-size: 20px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             background: linear-gradient(135deg, #fff, gold);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .buy-buttons {
-            display: flex; flex-direction: column; gap: 15px;
+            display: flex; flex-direction: column; gap: 10px;
         }
         .buy-btn {
             background: rgba(25,25,40,0.8);
             border: 1px solid rgba(139,92,246,0.3);
-            border-radius: 20px; padding: 18px 20px;
-            text-decoration: none; color: #fff; display: flex; align-items: center; gap: 15px;
+            border-radius: 14px;
+            padding: 12px 14px;
+            text-decoration: none; color: #fff; display: flex; align-items: center; gap: 10px;
             transition: all 0.2s;
         }
         .buy-btn:hover { 
@@ -247,9 +253,219 @@
             background: rgba(139,92,246,0.15);
             transform: translateY(-2px);
         }
-        .buy-btn-icon { font-size: 28px; width: 40px; text-align: center; }
-        .buy-btn-title { font-weight: 700; font-size: 16px; }
-        .buy-btn-subtitle { font-size: 11px; color: var(--text-muted); display: block; }
+        .buy-btn-icon { font-size: 22px; width: 32px; text-align: center; }
+        .buy-btn-title { font-weight: 700; font-size: 14px; }
+        .buy-btn-subtitle { font-size: 9px; color: var(--text-muted); display: block; }
+
+        /* Заголовок различий версий */
+        .version-header {
+            text-align: center;
+            margin: 30px 0 20px;
+        }
+        .version-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+        .version-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Comparison Table Styles - 3 колонки */
+        .comparison-section {
+            margin: 30px 0 40px;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .comparison-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(139,92,246,0.2);
+        }
+        .comparison-card.free:hover { border-color: var(--free-badge); }
+        .comparison-card.premium:hover { border-color: var(--premium-badge); }
+        .comparison-card.beta:hover { border-color: var(--beta-badge); }
+        
+        .card-header {
+            padding: 18px 18px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(139,92,246,0.02));
+        }
+        .card-header.free { background: linear-gradient(135deg, rgba(75,85,99,0.2), rgba(75,85,99,0.05)); }
+        .card-header.premium { background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(251,191,36,0.02)); }
+        .card-header.beta { background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.02)); }
+        
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .card-title.free { color: var(--free-badge); }
+        .card-title.premium { 
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-title.beta { 
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        .card-price span {
+            font-size: 26px;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(139,92,246,0.2);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card-badge.free { background: rgba(75,85,99,0.2); border-color: rgba(75,85,99,0.3); color: #9ca3af; }
+        .card-badge.premium { background: rgba(251,191,36,0.15); border-color: rgba(251,191,36,0.3); color: #fbbf24; }
+        .card-badge.beta { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.3); color: #60a5fa; }
+        
+        .card-body {
+            padding: 18px;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .feature-item:last-child { border-bottom: none; }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+        .feature-icon.plus { background: rgba(16,185,129,0.15); color: var(--success); }
+        .feature-icon.minus { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .feature-icon.check { background: rgba(139,92,246,0.15); color: var(--primary-light); }
+        .feature-icon.beta { background: rgba(59,130,246,0.15); color: #60a5fa; }
+        
+        .feature-text {
+            flex: 1;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .feature-text strong { color: #fff; }
+        
+        .script-list {
+            margin-top: 12px;
+            padding-left: 16px;
+            list-style-type: none;
+        }
+        .script-list li {
+            margin: 5px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .script-list li::before {
+            content: "•";
+            color: var(--primary-light);
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .script-list.premium li::before { color: var(--premium-badge); }
+        .script-list.beta li::before { color: var(--beta-badge); }
+        
+        .feature-note {
+            margin-top: 14px;
+            padding: 10px;
+            background: rgba(139,92,246,0.08);
+            border-radius: 10px;
+            font-size: 11px;
+            color: var(--text-muted);
+            border-left: 3px solid var(--primary-light);
+        }
+
+        /* Кнопка подачи заявки для BETA */
+        .beta-apply-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .beta-apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+        .beta-apply-btn:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 900px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
 
         .doc-section {
             background: var(--bg-card); 
@@ -334,6 +550,7 @@
             border: 1px solid rgba(139,92,246,0.15); 
             border-radius: 16px; 
             padding: 20px;
+            position: relative;
         }
         .script-code {
             font-family: 'Fira Code', monospace; 
@@ -347,6 +564,7 @@
             line-height: 1.8;
             overflow-x: auto;
             white-space: pre;
+            padding-right: 40px;
         }
         .script-code[rows="1"] {
             white-space: nowrap;
@@ -354,6 +572,50 @@
         .script-code[rows="auto"] {
             white-space: pre-wrap;
             word-break: break-word;
+        }
+
+        /* Кнопка копирования в хедере */
+        .copy-header-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 12px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 100px;
+            backdrop-filter: blur(4px);
+        }
+        .copy-header-btn:hover {
+            border-color: var(--primary);
+            background: rgba(139,92,246,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .copy-header-btn.copied {
+            background: rgba(16,185,129,0.1);
+            border-color: var(--success);
+            color: var(--success);
+        }
+        .copy-header-btn:active {
+            transform: translateY(0);
+        }
+        .copy-header-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .inline-code {
@@ -389,24 +651,87 @@
             height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent);
             margin: 40px 0 30px; opacity: 0.4;
         }
-        .copyright-bar {
-            text-align: center; margin-top: 70px; padding: 25px;
-            font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border);
-            font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 2px;
-            white-space: pre;
-        }
-        .copyright-bar span { color: var(--primary-light); }
 
-        /* scroll top */
-        .scroll-top-btn {
-            position: fixed; bottom: 25px; right: 25px; width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border: none; border-radius: 14px; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; font-size: 18px; color: #fff;
-            box-shadow: 0 10px 35px var(--primary-glow); transition: all 0.3s;
-            z-index: 999; opacity: 0; visibility: hidden; transform: translateY(20px);
+        /* Footer */
+        footer {
+            background: rgba(5,5,15,0.7);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border);
+            padding: 40px 0 30px;
+            margin-top: 60px;
         }
-        .scroll-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .footer-left .logo {
+            font-size: 20px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .footer-copy span {
+            color: var(--primary-light);
+        }
+
+        /* Scroll Top Button */
+        .scroll-top-btn {
+            position: fixed; 
+            bottom: 25px; 
+            right: 25px; 
+            width: 48px; 
+            height: 48px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            transition: all 0.3s;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-top-btn:hover {
+            border-color: var(--primary);
+            background: rgba(139,92,246,0.1);
+            transform: translateY(-4px);
+        }
 
         @media(max-width:1024px) {
             nav { padding: 0 30px; }
@@ -424,6 +749,11 @@
             .inline-code { font-size: 11px; white-space: normal; }
             .media-row { flex-direction: column; }
             .video-demo iframe { height: 250px; }
+            .copy-header-btn {
+                margin-top: 10px;
+                width: 100%;
+            }
+            .footer-links { gap: 20px; }
         }
         @media(max-width:400px) {
             .doc-title { font-size: 48px; letter-spacing: -2px; }
@@ -502,6 +832,141 @@
                         <span class="buy-btn-icon">🌐</span>
                         <div><span class="buy-btn-title">RobloxCheatz</span><span class="buy-btn-subtitle">Cards, PayPal, crypto</span></div>
                     </a>
+                    <a href="https://discord.gg/G5q9TpJVbA" target="_blank" class="buy-btn">
+                        <span class="buy-btn-icon">🌐</span>
+                        <div><span class="buy-btn-title">MBMG Shop</span><span class="buy-btn-subtitle">PayPal, Crypto, Gcash</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Заголовок различий версий -->
+        <div class="version-header">
+            <div class="version-title">FREE | PREMIUM | BETA</div>
+            <div class="version-subtitle">CHOOSE YOUR EXPERIENCE</div>
+        </div>
+
+        <!-- COMPARISON TABLE SECTION - Free vs Premium vs Beta -->
+        <div class="comparison-section">
+            <div class="comparison-grid">
+                <!-- Free Card -->
+                <div class="comparison-card free">
+                    <div class="card-header free">
+                        <div class="card-title free">FREE</div>
+                        <div class="card-price"><span>$0</span> / forever</div>
+                        <div class="card-badge free">Community Edition</div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon minus">✗</span>
+                                <span class="feature-text"><strong>Make Record</strong> — only use ready strategies</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon check">✓</span>
+                                <span class="feature-text"><strong>Place, Upgrade, Sell</strong> — full control</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon minus">✗</span>
+                                <span class="feature-text"><strong>Loop, etc.</strong> — not available</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon minus">✗</span>
+                                <span class="feature-text"><strong>Custom configs</strong> — only ready-to-use</span>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin: 14px 0 6px; color: var(--text-muted); font-weight: 600; font-size: 12px;">📜 AVAILABLE SCRIPTS:</div>
+                        <ul class="script-list">
+                            <li>Auto Money Free</li>
+                            <li>5 pre-made strategies</li>
+                        </ul>
+                        
+                        <div class="feature-note">
+                            ⚡ Global config available for all users
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Card -->
+                <div class="comparison-card premium">
+                    <div class="card-header premium">
+                        <div class="card-title premium">PREMIUM</div>
+                        <div class="card-price"><span>$14.99</span> / lifetime</div>
+                        <div class="card-badge premium">Elite Access</div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon plus">✓</span>
+                                <span class="feature-text"><strong>Make Record</strong> — full API access</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon plus">✓</span>
+                                <span class="feature-text"><strong>Place, Upgrade, Sell</strong> — unlimited</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon plus">✓</span>
+                                <span class="feature-text"><strong>Loop, infinite cycles, etc.</strong> — full support</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon plus">✓</span>
+                                <span class="feature-text"><strong>Custom configs</strong> — create your own</span>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin: 14px 0 6px; color: var(--premium-badge); font-weight: 600; font-size: 12px;">📜 PREMIUM SCRIPTS:</div>
+                        <ul class="script-list premium">
+                            <li>Auto Gems / Money (best strat)</li>
+                            <li>Macro Recorver V1/V2</li>
+                            <li>All Free features + 10+ extra strategies</li>
+                        </ul>
+                        
+                        <div class="feature-note" style="border-left-color: var(--premium-badge);">
+                            💎 Priority updates, private support, and beta access
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beta Card -->
+                <div class="comparison-card beta">
+                    <div class="card-header beta">
+                        <div class="card-title beta">BETA</div>
+                        <div class="card-price"><span>FREE</span> / limited</div>
+                        <div class="card-badge beta">Early Access</div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon beta">✓</span>
+                                <span class="feature-text"><strong>Test new features</strong> — before release</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon beta">✓</span>
+                                <span class="feature-text"><strong>Limited API access</strong> — selected methods</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon beta">✓</span>
+                                <span class="feature-text"><strong>Report bugs</strong> — shape the future</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon beta">✓</span>
+                                <span class="feature-text"><strong>Feedback priority</strong> — direct communication</span>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin: 14px 0 6px; color: var(--beta-badge); font-weight: 600; font-size: 12px;">📋 BETA FEATURES:</div>
+                        <ul class="script-list beta">
+                            <li>Upcoming V3 API preview</li>
+                            <li>New tower support</li>
+                            <li>Performance optimizations</li>
+                        </ul>
+                        
+                        <!-- Кнопка подачи заявки -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSecPXXdrO6QiTePw7zS7oFaLcStBtMrre1I-Fjaw-SEeSsjGg/viewform?usp=header" target="_blank" class="beta-apply-btn">
+                            Apply for Beta
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,6 +975,12 @@
             <div class="doc-section-header">
                 <span>📘</span>
                 <h2>How to Use</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-loader')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <p>1. Obtain your premium key from the store.</p>
@@ -527,7 +998,7 @@
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="2">script_key="your_premium_key";
+                            <textarea class="script-code" readonly rows="2" id="code-loader">script_key="your_premium_key";
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/loader.lua"))()</textarea>
                         </div>
                     </div>
@@ -541,6 +1012,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
             <div class="doc-section-header">
                 <span>📁</span>
                 <h2>How to use record files?</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-example')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <p><span class="inline-code">*executor/workspace/Space-Hub/Games/TDS V2/script.lua</span></p>
@@ -558,7 +1035,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="2">-- Example: load your recorded macro
+                            <textarea class="script-code" readonly rows="2" id="code-example">-- Example: load your recorded macro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()</textarea>
                         </div>
                     </div>
@@ -570,6 +1047,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
             <div class="doc-section-header">
                 <span>⚙️</span>
                 <h2>CORE ENGINE METHODS + GLOBAL CONFIG (_G)</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-config')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <h3 style="color:var(--primary-light); margin-bottom:15px;">🌐 Global Configuration (set before loading)</h3>
@@ -616,7 +1099,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="6">_G.AutoPickups = true
+                            <textarea class="script-code" readonly rows="6" id="code-config">_G.AutoPickups = true
 _G.AutoSkip = true
 _G.AutoRejoin = true
 
@@ -632,6 +1115,12 @@ TDS:Place("Scout", 0.29, -6.36, 17.00)  -- normal placement</textarea>
             <div class="doc-section-header">
                 <span>🔧</span>
                 <h2>TDS:SetOption</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-setoption')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <p><span class="inline-code">TDS:SetOption(index, "OptionName", "Value", requiredWave)</span></p>
@@ -654,7 +1143,7 @@ TDS:Place("Scout", 0.29, -6.36, 17.00)  -- normal placement</textarea>
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="3">TDS:SetOption(1, "Unit 1", "Grenadier")   -- Mercenary Base
+                            <textarea class="script-code" readonly rows="3" id="code-setoption">TDS:SetOption(1, "Unit 1", "Grenadier")   -- Mercenary Base
 TDS:SetOption(2, "Trap", "Landmine")      -- Trapper
 TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10</textarea>
                         </div>
@@ -667,6 +1156,12 @@ TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10</textarea>
             <div class="doc-section-header">
                 <span>⚡</span>
                 <h2>TDS:Ability — special powers</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-abilities')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <p><span class="inline-code">TDS:Ability(index, "AbilityName", dataTable, loop)</span></p>
@@ -694,7 +1189,7 @@ TDS:SetOption(3, "Track", "Purple", 10)   -- required wave 10</textarea>
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="12">TDS:Ability(1, "Call Of Arms", {}, true) -- Commander (loop)
+                            <textarea class="script-code" readonly rows="12" id="code-abilities">TDS:Ability(1, "Call Of Arms", {}, true) -- Commander (loop)
 TDS:Ability(2, "Support Caravan", {}) -- Commander (without loop)
 TDS:Ability(3, "Drop The Beat", {}) -- DJ Booth
 TDS:Ability(4, "Ubercharge", {}) -- Medic
@@ -719,6 +1214,12 @@ TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simp
             <div class="doc-section-header">
                 <span>🚀</span>
                 <h2>ADVANCED · INFINITE LOOP & POSITIONING</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-airstrike')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <h3 style="margin:0 0 15px;">📁 Autoexec (24/7 AFK)</h3>
@@ -745,7 +1246,7 @@ TDS:Ability(12, "Air-Drop", { pathName = 1, dist = 156 }) -- Military Base (Simp
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="2">-- Airstrike at ~70% of path
+                            <textarea class="script-code" readonly rows="2" id="code-airstrike">-- Airstrike at ~70% of path
 TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })</textarea>
                         </div>
                     </div>
@@ -776,7 +1277,7 @@ TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })</texta
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="3">-- Print rewards after match
+                            <textarea class="script-code" readonly rows="3" id="code-rewards">-- Print rewards after match
 local rewards = TDS:GetRewards()
 print("Coins:", rewards.Coins, "Gems:", rewards.Gems)</textarea>
                         </div>
@@ -801,7 +1302,7 @@ print("Coins:", rewards.Coins, "Gems:", rewards.Gems)</textarea>
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="2">-- [[ END OF STRATEGY ]]
+                            <textarea class="script-code" readonly rows="2" id="code-restart">-- [[ END OF STRATEGY ]]
 TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</textarea>
                         </div>
                     </div>
@@ -819,7 +1320,7 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="10">-- [[ INITIALIZE LIBRARY ]]
+                            <textarea class="script-code" readonly rows="10" id="code-example-full">-- [[ INITIALIZE LIBRARY ]]
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
 -- [[ START STRATEGY ]]
 TDS:Place("Assassin", 9.94, 1.00, -32.01) -- Index: 1
@@ -855,6 +1356,12 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
             <div class="doc-section-header">
                 <span>🏠</span>
                 <h2>Lobby Methods</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-lobby')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <table class="param-table">
@@ -877,7 +1384,7 @@ TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="4">TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
+                            <textarea class="script-code" readonly rows="4" id="code-lobby">TDS:Loadout("Mercenary Base", "DJ Booth", "Hacker", "Scout", "Necromancer")
 TDS:Mode("Frost")
 TDS:GameInfo("Honey Valley", {})   -- no modifiers
 TDS:StartGame()</textarea>
@@ -891,6 +1398,12 @@ TDS:StartGame()</textarea>
             <div class="doc-section-header">
                 <span>📋</span>
                 <h2>Complete Configuration Snippet</h2>
+                <div style="margin-left: auto;">
+                    <button class="copy-header-btn" onclick="copyHeaderCode(this, 'code-complete')">
+                        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
             </div>
             <div class="doc-section-body">
                 <div class="script-box">
@@ -906,7 +1419,7 @@ TDS:StartGame()</textarea>
                     </div>
                     <div class="script-box-body">
                         <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="26" style="white-space: pre; overflow-x: auto;">_G.AutoPickups = true
+                            <textarea class="script-code" readonly rows="26" style="white-space: pre; overflow-x: auto;" id="code-complete">_G.AutoPickups = true
 _G.AutoSkip = true
 _G.AutoChain = false
 _G.AutoDJ = false
@@ -936,13 +1449,28 @@ TDS:Ability(26, "Call Of Arms", nil, true)   -- loop</textarea>
                 </div>
             </div>
         </section>
-
-        <div class="copyright-bar">
-╔══════════════════════════════════════════════════════════╗<br>
-    COPYRIGHT 2024-2026 SPACE HUB - ALL RIGHTS RESERVED<br>
-╚══════════════════════════════════════════════════════════╝
-        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><img src="https://cdn.discordapp.com/icons/1406607908577218681/15c37683ed180644b5ac11d91f49022d.webp?size=1024" alt="Space Hub"></div>
+                    <span class="logo-text">SPACE HUB</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#features">Features</a>
+                <a href="#games">Games</a>
+                <a href="#script">Script</a>
+                <a href="https://discord.gg/ktC6dNVxDC" target="_blank">Discord</a>
+                <a href="https://t.me/RBscr1pts" target="_blank">Telegram</a>
+            </div>
+            <p class="footer-copy">© 2025-2026 <span>Space Hub</span>. All rights reserved.</p>
+        </div>
+    </footer>
 
     <button class="scroll-top-btn" id="scrollTopBtn">↑</button>
 
@@ -1004,6 +1532,25 @@ TDS:Ability(26, "Call Of Arms", nil, true)   -- loop</textarea>
                 }
             });
         });
+
+        window.copyHeaderCode = function(btn, textareaId) {
+            const textarea = document.getElementById(textareaId);
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            
+            navigator.clipboard.writeText(textarea.value).then(() => {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> COPIED!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
     </script>
 </body>
 </html>
