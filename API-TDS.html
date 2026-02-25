@@ -1262,7 +1262,6 @@ TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })</texta
                     <tr><td>TDS:GetGameState()</td><td>Returns "LOBBY" or "GAME".</td></tr>
                     <tr><td>TDS:GetRewards()</td><td>Parses post‑game screen → table [Coins, Gems, XP, Wave, Time, Status, Others].</td></tr>
                     <tr><td>TDS:RestartWithRejoin()</td><td>Resets and teleports back to game.</td></tr>
-                    <tr><td>TDS:RestartScript(link)</td><td>Automaticly restart script after LOSS.</td></tr>
                 </table>
                 <div class="script-box">
                     <div class="script-box-header">
@@ -1280,54 +1279,6 @@ TDS:Ability(militaryIdx, "Airstrike", { pathName = 1, pointToEnd = 110 })</texta
                             <textarea class="script-code" readonly rows="3" id="code-rewards">-- Print rewards after match
 local rewards = TDS:GetRewards()
 print("Coins:", rewards.Coins, "Gems:", rewards.Gems)</textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="hr-divider"></div>
-                <h3 style="color:var(--primary-light);">⚠️ HOW TO SETUP AUTO CONTINUE MACRO AFTER LOSE?</h3>
-                <ul style="color: var(--text-secondary); margin-left: 25px;">
-                    <li><strong>1.</strong> Upload your script on github.</li>
-                    <li><strong>2.</strong> Get Raw to your script.</li>
-                </ul>
-                <div class="script-box">
-                    <div class="script-box-header">
-                        <div class="script-header-left">
-                            <div class="script-dots">
-                                <div class="script-dot red"></div>
-                                <div class="script-dot yellow"></div>
-                                <div class="script-dot green"></div>
-                            </div>
-                            <span class="script-filename">restart.lua</span>
-                        </div>
-                    </div>
-                    <div class="script-box-body">
-                        <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="2" id="code-restart">-- [[ END OF STRATEGY ]]
-TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="script-box">
-                    <div class="script-box-header">
-                        <div class="script-header-left">
-                            <div class="script-dots">
-                                <div class="script-dot red"></div>
-                                <div class="script-dot yellow"></div>
-                                <div class="script-dot green"></div>
-                            </div>
-                            <span class="script-filename">your_script_example.lua</span>
-                        </div>
-                    </div>
-                    <div class="script-box-body">
-                        <div class="script-code-wrapper">
-                            <textarea class="script-code" readonly rows="10" id="code-example-full">-- [[ INITIALIZE LIBRARY ]]
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Space-RB/Premium/refs/heads/main/Scripts/TDS/Recorder/Library.lua"))()
--- [[ START STRATEGY ]]
-TDS:Place("Assassin", 9.94, 1.00, -32.01) -- Index: 1
-TDS:Place("Assassin", 11.68, 1.00, -30.29) -- Index: 2
-TDS:Sell(1, 6) -- Wave 6
--- [[ END OF STRATEGY ]]
-TDS:RestartScript("https://raw.githubusercontent.com/path_to_your_script.lua")</textarea>
                         </div>
                     </div>
                 </div>
