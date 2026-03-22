@@ -20,13 +20,9 @@
             --bg-deep: #030014;
             --bg-card: rgba(20, 20, 40, 0.75);
             --border-subtle: rgba(168, 85, 247, 0.2);
-            --border-glow: rgba(168, 85, 247, 0.5);
             --text-white: #ffffff;
             --text-muted: #a1a1aa;
             --text-secondary: #c4b5fd;
-            --success-emerald: #10b981;
-            --warning-amber: #f59e0b;
-            --danger-rose: #ef4444;
         }
 
         body {
@@ -38,7 +34,6 @@
             min-height: 100vh;
         }
 
-        /* dynamic background */
         .bg-aurora {
             position: fixed;
             inset: 0;
@@ -102,7 +97,6 @@
             100% { opacity: 0.7; transform: scale(1.2);}
         }
 
-        /* layout */
         .site-wrapper {
             position: relative;
             z-index: 2;
@@ -111,7 +105,6 @@
             padding: 0 24px;
         }
 
-        /* navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -195,7 +188,6 @@
             cursor: pointer;
         }
 
-        /* hero */
         .hero {
             text-align: center;
             padding: 48px 0 32px;
@@ -209,7 +201,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(168,85,247,0.3);
         }
         .hero p {
             color: var(--text-secondary);
@@ -247,19 +238,7 @@
             color: var(--text-muted);
             margin-top: 5px;
         }
-        .economy-timer {
-            font-size: 13px;
-            background: rgba(245,158,11,0.12);
-            border-radius: 60px;
-            padding: 6px 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            border: 1px solid rgba(245,158,11,0.3);
-        }
 
-        /* search + filters */
         .marketplace-header {
             display: flex;
             justify-content: space-between;
@@ -319,7 +298,6 @@
             color: var(--text-muted);
         }
 
-        /* items container */
         .items-container {
             margin-top: 24px;
             background: var(--bg-card);
@@ -376,7 +354,6 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 18px;
-            letter-spacing: 0px;
         }
         .price-tag {
             display: flex;
@@ -402,10 +379,8 @@
         }
         .empty-state a:hover {
             color: white;
-            border-bottom-color: white;
         }
 
-        /* community section - только дискорд юзер */
         .community-section {
             margin: 60px 0 40px;
             background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,0,0,0.3));
@@ -432,16 +407,6 @@
         .discord-big:hover {
             transform: scale(1.02);
             background: #4752c4;
-        }
-        .user-mention {
-            background: rgba(88,101,242,0.2);
-            border-radius: 40px;
-            padding: 8px 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            font-size: 14px;
         }
 
         footer {
@@ -476,32 +441,30 @@
             visibility: visible;
         }
 
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 70%;
+            background: #05001a;
+            z-index: 1000;
+            padding: 60px 30px;
+            transform: translateX(100%);
+            transition: 0.3s;
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--border-subtle);
+        }
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+
         @media (max-width: 780px) {
-            .navbar {
-                flex-direction: row;
-            }
             .nav-links {
                 display: none;
             }
             .mobile-menu {
                 display: block;
-            }
-            .mobile-drawer {
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                width: 70%;
-                background: #05001a;
-                z-index: 1000;
-                padding: 60px 30px;
-                transform: translateX(100%);
-                transition: 0.3s;
-                backdrop-filter: blur(20px);
-                border-left: 1px solid var(--border-subtle);
-            }
-            .mobile-drawer.open {
-                transform: translateX(0);
             }
             .item-row {
                 flex-direction: column;
@@ -510,9 +473,6 @@
             }
             .price-tag {
                 align-self: flex-end;
-            }
-            .filter-group {
-                justify-content: center;
             }
         }
     </style>
@@ -542,12 +502,23 @@
         <button class="mobile-menu" id="mobileMenuToggle">☰</button>
     </div>
 
+    <!-- Мобильное меню -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button style="background:none; border:none; color:white; font-size:28px; position:absolute; top:20px; right:25px; cursor:pointer;" id="closeDrawer">✕</button>
+        <div style="display: flex; flex-direction: column; gap: 30px; margin-top: 60px;">
+            <a href="#" style="color:white; text-decoration:none; font-size:20px;">Главная</a>
+            <a href="#items-section" style="color:white; text-decoration:none; font-size:20px;">Товары</a>
+            <a href="#community" style="color:white; text-decoration:none; font-size:20px;">Сообщество</a>
+            <a href="https://discord.com/users/702417939000721421" target="_blank" style="color:#a855f7;">📩 @agush3nka</a>
+        </div>
+    </div>
+
     <div class="hero" id="home">
         <h1>AURION · Торговля</h1>
         <p>Актуальные рыночные цены в Алмазной Руде (АР) · минимальные предложения</p>
         <div class="stats-row">
             <div class="stat-card"><div class="stat-value" id="totalItemsCount">0</div><div class="stat-label">ВСЕГО ТОВАРОВ</div></div>
-            <div class="stat-card"><div class="stat-value" id="ministerTimerDisplay">--:--:--</div><div class="stat-label">МИНИСТР ЭКОНОМИКИ · ago106</div></div>
+            <div class="stat-card"><div class="stat-value" id="ministerTimerDisplay">--:--:--</div><div class="stat-label">Занимает должность Министра Экономики</div></div>
         </div>
     </div>
 
@@ -595,7 +566,6 @@
 <button class="scroll-top" id="scrollTopBtn">↑</button>
 
 <script>
-
     const itemsDatabase = [
         { name: "Древняя книга заклинаний (Том I)", category: "books", price: 2450 },
         { name: "Чародейский фолиант: Огненный всполох", category: "books", price: 890 },
@@ -636,8 +606,10 @@
     ];
     
     const fullCatalog = [...itemsDatabase];
+    
     function updateTotalItems() { 
-        document.getElementById('totalItemsCount').innerText = fullCatalog.length; 
+        const el = document.getElementById('totalItemsCount');
+        if(el) el.innerText = fullCatalog.length; 
     }
     updateTotalItems();
 
@@ -645,17 +617,16 @@
         const startDate = new Date(2026, 2, 22, 21, 0, 0);
         const now = new Date();
         const diffSeconds = Math.floor((now - startDate) / 1000);
+        const timerEl = document.getElementById('ministerTimerDisplay');
         if (diffSeconds < 0) {
-            document.getElementById('ministerTimerDisplay').innerHTML = "0д · ago106";
-            document.getElementById('liveTimerSeconds').innerText = "0";
+            if(timerEl) timerEl.innerHTML = "0д · ago106";
             return;
         }
         const days = Math.floor(diffSeconds / 86400);
         const hours = Math.floor((diffSeconds % 86400) / 3600);
         const mins = Math.floor((diffSeconds % 3600) / 60);
         const secs = diffSeconds % 60;
-        document.getElementById('ministerTimerDisplay').innerHTML = `${days}д ${hours}ч ${mins}м ${secs}с · ago106`;
-        document.getElementById('liveTimerSeconds').innerText = diffSeconds.toLocaleString();
+        if(timerEl) timerEl.innerHTML = `${days}д ${hours}ч ${mins}м ${secs}с · ago106`;
     }
     updateLiveTimer();
     setInterval(updateLiveTimer, 1000);
@@ -674,36 +645,38 @@
         });
 
         if (filtered.length === 0) {
-            itemsGrid.innerHTML = '';
-            emptyMsgDiv.style.display = 'block';
+            if(itemsGrid) itemsGrid.innerHTML = '';
+            if(emptyMsgDiv) emptyMsgDiv.style.display = 'block';
             return;
         }
-        emptyMsgDiv.style.display = 'none';
-        itemsGrid.innerHTML = filtered.map(item => {
-            let categoryLabel = "";
-            switch(item.category) {
-                case "books": categoryLabel = "📖 Книги"; break;
-                case "templates": categoryLabel = "📐 Шаблоны"; break;
-                case "blocks": categoryLabel = "🧱 Блоки"; break;
-                case "tools": categoryLabel = "🔧 Инструменты"; break;
-                case "weapons": categoryLabel = "⚔️ Оружие"; break;
-                case "armor": categoryLabel = "🛡️ Броня"; break;
-                default: categoryLabel = "✨ Прочее";
-            }
-            return `
-                <div class="item-row">
-                    <div class="item-info">
-                        <span class="item-category">${categoryLabel}</span>
-                        <span class="item-name">${escapeHtml(item.name)}</span>
+        if(emptyMsgDiv) emptyMsgDiv.style.display = 'none';
+        if(itemsGrid) {
+            itemsGrid.innerHTML = filtered.map(item => {
+                let categoryLabel = "";
+                switch(item.category) {
+                    case "books": categoryLabel = "📖 Чар книги"; break;
+                    case "templates": categoryLabel = "📐 Шаблоны"; break;
+                    case "blocks": categoryLabel = "🧱 Блоки"; break;
+                    case "tools": categoryLabel = "🔧 Инструменты"; break;
+                    case "weapons": categoryLabel = "⚔️ Оружие"; break;
+                    case "armor": categoryLabel = "🛡️ Броня"; break;
+                    default: categoryLabel = "✨ Прочее";
+                }
+                return `
+                    <div class="item-row">
+                        <div class="item-info">
+                            <span class="item-category">${categoryLabel}</span>
+                            <span class="item-name">${escapeHtml(item.name)}</span>
+                        </div>
+                        <div class="price-tag">
+                            <span class="price-symbol">💎 АР</span>
+                            <span class="item-price">${item.price.toLocaleString()}</span>
+                            <span style="font-size:11px; margin-left:4px; color:#aaa;">min</span>
+                        </div>
                     </div>
-                    <div class="price-tag">
-                        <span class="price-symbol">💎 АР</span>
-                        <span class="item-price">${item.price.toLocaleString()}</span>
-                        <span style="font-size:11px; margin-left:4px; color:#aaa;">min</span>
-                    </div>
-                </div>
-            `;
-        }).join('');
+                `;
+            }).join('');
+        }
     }
 
     function escapeHtml(str) { 
@@ -725,43 +698,54 @@
         });
     });
 
-    searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        renderItems();
-    });
-
-    // Ссылка на дискорд юзера в пустом состоянии (уже есть в пустом сообщении)
-    const suggestUserLink = document.getElementById('suggestUserLink');
-    if(suggestUserLink) {
-        suggestUserLink.addEventListener('click', (e) => {
-            window.open('https://discord.com/users/702417939000721421', '_blank');
+    if(searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderItems();
         });
     }
 
     // мобильное меню
     const mobileToggle = document.getElementById('mobileMenuToggle');
+    const drawer = document.getElementById('mobileDrawer');
     const closeDrawerBtn = document.getElementById('closeDrawer');
-    function openDrawer() { drawer.classList.add('open'); }
-    function closeDrawer() { drawer.classList.remove('open'); }
-    if(mobileToggle) mobileToggle.addEventListener('click', openDrawer);
-    if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-    document.querySelectorAll('.mobile-drawer a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            if(link.getAttribute('href')?.startsWith('#')) closeDrawer();
+    
+    if(mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            if(drawer) drawer.classList.add('open');
         });
-    });
+    }
+    if(closeDrawerBtn) {
+        closeDrawerBtn.addEventListener('click', () => {
+            if(drawer) drawer.classList.remove('open');
+        });
+    }
+    
+    // закрытие при клике на ссылки в мобильном меню
+    if(drawer) {
+        drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                drawer.classList.remove('open');
+            });
+        });
+    }
 
     // скролл топ
     const scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {
-        if(window.scrollY > 400) scrollBtn.classList.add('visible');
-        else scrollBtn.classList.remove('visible');
+        if(scrollBtn) {
+            if(window.scrollY > 400) scrollBtn.classList.add('visible');
+            else scrollBtn.classList.remove('visible');
+        }
     });
-    scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    if(scrollBtn) {
+        scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    }
 
     // звезды
     function generateStars() {
         const starsDiv = document.getElementById('starfield');
+        if(!starsDiv) return;
         const count = window.innerWidth < 700 ? 45 : 110;
         for(let i=0; i<count; i++) {
             let star = document.createElement('div');
