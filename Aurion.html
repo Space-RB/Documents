@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Aurion | Marketplace & Economy Hub</title>
+    <title>Aurion | Маркетплейс цен АР</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -170,7 +170,7 @@
         .nav-links a:hover {
             color: var(--aurion-primary);
         }
-        .discord-btn {
+        .discord-user-btn {
             background: rgba(88,101,242,0.12);
             border: 1px solid rgba(88,101,242,0.3);
             padding: 8px 18px;
@@ -179,8 +179,10 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
+            text-decoration: none;
+            color: white;
         }
-        .discord-btn:hover {
+        .discord-user-btn:hover {
             background: rgba(88,101,242,0.25);
             border-color: #5865f2;
         }
@@ -190,6 +192,7 @@
             border: none;
             color: white;
             font-size: 28px;
+            cursor: pointer;
         }
 
         /* hero */
@@ -312,8 +315,11 @@
             width: 100%;
             font-size: 14px;
         }
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
 
-        /* items grid */
+        /* items container */
         .items-container {
             margin-top: 24px;
             background: var(--bg-card);
@@ -380,18 +386,26 @@
         .price-symbol {
             font-size: 12px;
             color: #f59e0b;
+            font-weight: 700;
         }
         .empty-state {
             text-align: center;
             padding: 70px 20px;
             color: var(--text-muted);
         }
-        .empty-state strong {
+        .empty-state a {
             color: var(--aurion-primary);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px dashed var(--aurion-primary);
             cursor: pointer;
         }
+        .empty-state a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
 
-        /* community section */
+        /* community section - только дискорд юзер */
         .community-section {
             margin: 60px 0 40px;
             background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,0,0,0.3));
@@ -418,6 +432,16 @@
         .discord-big:hover {
             transform: scale(1.02);
             background: #4752c4;
+        }
+        .user-mention {
+            background: rgba(88,101,242,0.2);
+            border-radius: 40px;
+            padding: 8px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-size: 14px;
         }
 
         footer {
@@ -487,6 +511,9 @@
             .price-tag {
                 align-self: flex-end;
             }
+            .filter-group {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -505,11 +532,11 @@
             <div class="logo-text">AURION</div>
         </div>
         <div class="nav-links">
-            <a href="#">Market</a>
-            <a href="#items-section">Items</a>
-            <a href="#community">Community</a>
-            <a href="#" id="suggestLink" class="discord-btn">
-                <span>💎</span> Suggest Item
+            <a href="#">Главная</a>
+            <a href="#items-section">Товары</a>
+            <a href="#community">Сообщество</a>
+            <a href="https://discord.com/users/702417939000721421" target="_blank" class="discord-user-btn">
+                <span>🎮</span> @agush3nka
             </a>
         </div>
         <button class="mobile-menu" id="mobileMenuToggle">☰</button>
@@ -518,30 +545,30 @@
     <div class="mobile-drawer" id="mobileDrawer">
         <button style="background:none; border:none; color:white; font-size:28px; position:absolute; top:20px; right:25px;" id="closeDrawer">✕</button>
         <div style="display: flex; flex-direction: column; gap: 30px; margin-top: 60px;">
-            <a href="#" style="color:white; text-decoration:none; font-size:20px;">Market</a>
-            <a href="#items-section" style="color:white; text-decoration:none; font-size:20px;">Items</a>
-            <a href="#community" style="color:white; text-decoration:none; font-size:20px;">Community</a>
-            <a href="#" id="mobileSuggest" style="color:#a855f7;">➕ Suggest Item</a>
+            <a href="#" style="color:white; text-decoration:none; font-size:20px;">Главная</a>
+            <a href="#items-section" style="color:white; text-decoration:none; font-size:20px;">Товары</a>
+            <a href="#community" style="color:white; text-decoration:none; font-size:20px;">Сообщество</a>
+            <a href="https://discord.com/users/702417939000721421" target="_blank" style="color:#a855f7;">📩 @agush3nka</a>
         </div>
     </div>
 
     <div class="hero" id="home">
-        <h1>AURION MARKET</h1>
-        <p>Real-time player-driven economy · transparent prices · instant listings</p>
+        <h1>AURION · АР</h1>
+        <p>Актуальные рыночные цены в Алмазной Руде (АР) · минимальные предложения</p>
         <div class="stats-row">
-            <div class="stat-card"><div class="stat-value" id="totalItemsCount">0</div><div class="stat-label">TOTAL LISTINGS</div></div>
-            <div class="stat-card"><div class="stat-value" id="ministerTimer">--:--:--</div><div class="stat-label">MINISTER OF ECONOMY · ago106</div></div>
+            <div class="stat-card"><div class="stat-value" id="totalItemsCount">0</div><div class="stat-label">ВСЕГО ТОВАРОВ</div></div>
+            <div class="stat-card"><div class="stat-value" id="ministerTimerDisplay">--:--:--</div><div class="stat-label">МИНИСТР ЭКОНОМИКИ · ago106</div></div>
         </div>
         <div class="economy-timer">
-            <span>📆 Term started: 22.03.2026 21:00 UTC</span>
-            <span>⏳ tenure active</span>
+            <span>📅 Срок полномочий: 22.03.2026 21:00 UTC</span>
+            <span>⏱️ В должности: <span id="liveTimerSeconds">0</span> сек</span>
         </div>
     </div>
 
     <!-- marketplace header -->
     <div class="marketplace-header" id="items-section">
         <div class="section-title">
-            <span>💼</span> <span>Exchange Hub</span>
+            <span>💎</span> <span>Торговая площадка</span>
         </div>
         <div class="filter-group" id="categoryFilters">
             <div class="filter-chip active" data-cat="all">📦 ВСЁ</div>
@@ -555,107 +582,104 @@
         </div>
         <div class="search-box">
             <span>🔍</span>
-            <input type="text" id="searchInput" placeholder="Поиск предмета...">
+            <input type="text" id="searchInput" placeholder="Поиск предмета по названию...">
         </div>
     </div>
 
     <div class="items-container" id="itemsContainer">
         <div class="items-grid" id="itemsGrid"></div>
         <div id="emptyMessage" class="empty-state" style="display: none;">
-            ❌ Нет предметов по запросу. <strong id="suggestEmptyBtn">Напиши в Discord (@agush3nka) →</strong> чтобы добавили!
+            ❌ Нет товаров по вашему запросу.<br>
+            ✨ Если вы не нашли нужный предмет — напишите <a href="https://discord.com/users/702417939000721421" target="_blank" id="suggestUserLink">@agush3nka</a> в Discord, и мы добавим рыночную цену!
         </div>
     </div>
 
     <div class="community-section" id="community">
-        <h2 style="font-family: 'Orbitron'; font-size: 28px;">📡 Join the Aurion Guild</h2>
-        <p style="max-width: 550px; margin: 12px auto;">Get instant price updates, report market shifts, suggest new items, and connect with traders.</p>
-        <a href="https://discord.gg/ktC6dNVxDC" target="_blank" class="discord-big">
+        <h2 style="font-family: 'Orbitron'; font-size: 28px;">💬 Поддержка и предложения</h2>
+        <p style="max-width: 550px; margin: 12px auto;">По вопросам цен, новым товарам или правкам — свяжитесь с министром экономики напрямую.</p>
+        <a href="https://discord.com/users/702417939000721421" target="_blank" class="discord-big">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-            Join Discord · @agush3nka
+            Написать @agush3nka
         </a>
-        <p style="margin-top: 18px; font-size: 13px; color: #aaa;">✏️ Нет предмета в списке? Напишите в Discord, и мы добавим рыночную цену в течение 24ч.</p>
+        <div class="user-mention">
+            <span>🎯</span> Дискорд: <strong>agush3nka</strong> · прямая связь с министром
+        </div>
+        <p style="margin-top: 18px; font-size: 13px; color: #aaa;">✏️ Нет предмета в списке? Кликните на ссылку выше — мы добавим цену в АР в течение 24ч.</p>
     </div>
     <footer>
-        <p>© 2025-2026 Aurion Marketplace — powered by player economy. Minister of Economy: ago106</p>
+        <p>© 2025-2026 Aurion Market — цены в Алмазной Руде (АР) | Министр экономики: ago106 | актуальность каждую секунду</p>
     </footer>
 </div>
 <button class="scroll-top" id="scrollTopBtn">↑</button>
 
 <script>
-    // ---------- ITEM DATABASE (Предмет + рыночная цена) ----------
+    // ---------- БАЗА ТОВАРОВ (название, категория, цена в АР) ----------
     const itemsDatabase = [
-        // Чар книги
         { name: "Древняя книга заклинаний (Том I)", category: "books", price: 2450 },
         { name: "Чародейский фолиант: Огненный всполох", category: "books", price: 890 },
         { name: "Гримуар теней", category: "books", price: 3200 },
         { name: "Книга рун: Скорость", category: "books", price: 550 },
-        // Шаблоны
+        { name: "Книга мастерства: Кузнечное дело", category: "books", price: 3400 },
+        { name: "Книга проклятий", category: "books", price: 4600 },
         { name: "Шаблон: Клинок разрушителя", category: "templates", price: 1750 },
         { name: "Шаблон: Элитный нагрудник", category: "templates", price: 2250 },
         { name: "Шаблон: Кольцо власти", category: "templates", price: 3100 },
-        // Блоки
+        { name: "Шаблон: Алмазная броня", category: "templates", price: 5200 },
+        { name: "Шаблон: Башня мага", category: "templates", price: 6700 },
         { name: "Эфирный блок", category: "blocks", price: 320 },
         { name: "Светокамень (x64)", category: "blocks", price: 890 },
         { name: "Небесный кирпич", category: "blocks", price: 450 },
         { name: "Обсидиановая плита", category: "blocks", price: 210 },
-        // Инструменты
+        { name: "Мифриловый блок", category: "blocks", price: 670 },
+        { name: "Искрящийся кристалл", category: "blocks", price: 1220 },
         { name: "Кирка Авроры", category: "tools", price: 4950 },
         { name: "Эликсирная фляга бесконечности", category: "tools", price: 1220 },
         { name: "Магический посох землекопа", category: "tools", price: 3450 },
-        // Оружие
+        { name: "Лунный топор", category: "tools", price: 3100 },
         { name: "Меч Рассвета", category: "weapons", price: 7800 },
         { name: "Арбалет гроз", category: "weapons", price: 4300 },
         { name: "Кинжал теней", category: "weapons", price: 2980 },
         { name: "Посох Ледяного Дракона", category: "weapons", price: 12400 },
-        // Броня
+        { name: "Копье судьбы", category: "weapons", price: 9300 },
         { name: "Шлем небесного стража", category: "armor", price: 3600 },
         { name: "Нагрудник из драконьей чешуи", category: "armor", price: 8250 },
         { name: "Поножи призрачного странника", category: "armor", price: 2750 },
         { name: "Башмаки проворства", category: "armor", price: 1890 },
-        // Прочее
+        { name: "Шлем тьмы", category: "armor", price: 4100 },
         { name: "Амулет удачи (эпический)", category: "other", price: 999 },
         { name: "Сумка алхимика (32 слота)", category: "other", price: 1450 },
         { name: "Золотая монета удачи", category: "other", price: 150 },
-        { name: "Свиток телепортации (5 шт)", category: "other", price: 780 }
+        { name: "Свиток телепортации (5 шт)", category: "other", price: 780 },
+        { name: "Талисман времени", category: "other", price: 2750 }
     ];
-
-    // Добавим еще предметы для разнообразия (чтобы total > 25)
-    const extra = [
-        { name: "Книга мастерства: Кузнечное дело", category: "books", price: 3400 },
-        { name: "Шаблон: Алмазная броня", category: "templates", price: 5200 },
-        { name: "Мифриловый блок", category: "blocks", price: 670 },
-        { name: "Лунный топор", category: "tools", price: 3100 },
-        { name: "Копье судьбы", category: "weapons", price: 9300 },
-        { name: "Шлем тьмы", category: "armor", price: 4100 },
-        { name: "Талисман времени", category: "other", price: 2750 },
-        { name: "Книга проклятий", category: "books", price: 4600 },
-        { name: "Шаблон: Башня мага", category: "templates", price: 6700 },
-        { name: "Искрящийся кристалл", category: "blocks", price: 1220 }
-    ];
-    const fullCatalog = [...itemsDatabase, ...extra];
     
-    // Update total items count stat
-    function updateTotalItems() { document.getElementById('totalItemsCount').innerText = fullCatalog.length; }
+    const fullCatalog = [...itemsDatabase];
+    function updateTotalItems() { 
+        document.getElementById('totalItemsCount').innerText = fullCatalog.length; 
+    }
     updateTotalItems();
 
-    // Timer from 22.03.2026 21:00 (ago106 minister)
-    function updateMinisterTimer() {
-        const startDate = new Date(2026, 2, 22, 21, 0, 0); // month 2 = March
+    // ----- ТАЙМЕР РЕАЛЬНОГО ВРЕМЕНИ ДО СЕКУНД (с 22.03.2026 21:00) -----
+    function updateLiveTimer() {
+        const startDate = new Date(2026, 2, 22, 21, 0, 0); // 22 марта 2026 21:00 UTC
         const now = new Date();
-        const diff = Math.floor((now - startDate) / 1000);
-        if (diff < 0) {
-            document.getElementById('ministerTimer').innerHTML = "00d · ago106";
+        const diffSeconds = Math.floor((now - startDate) / 1000);
+        if (diffSeconds < 0) {
+            document.getElementById('ministerTimerDisplay').innerHTML = "0д · ago106";
+            document.getElementById('liveTimerSeconds').innerText = "0";
             return;
         }
-        const days = Math.floor(diff / 86400);
-        const hours = Math.floor((diff % 86400) / 3600);
-        const mins = Math.floor((diff % 3600) / 60);
-        document.getElementById('ministerTimer').innerHTML = `${days}d ${hours}h ${mins}m · ago106`;
+        const days = Math.floor(diffSeconds / 86400);
+        const hours = Math.floor((diffSeconds % 86400) / 3600);
+        const mins = Math.floor((diffSeconds % 3600) / 60);
+        const secs = diffSeconds % 60;
+        document.getElementById('ministerTimerDisplay').innerHTML = `${days}д ${hours}ч ${mins}м ${secs}с · ago106`;
+        document.getElementById('liveTimerSeconds').innerText = diffSeconds.toLocaleString();
     }
-    updateMinisterTimer();
-    setInterval(updateMinisterTimer, 60000);
+    updateLiveTimer();
+    setInterval(updateLiveTimer, 1000); // обновление каждую секунду
 
-    // DOM elements
+    // ----- ФИЛЬТРАЦИЯ И ПОИСК -----
     const itemsGrid = document.getElementById('itemsGrid');
     const searchInput = document.getElementById('searchInput');
     const emptyMsgDiv = document.getElementById('emptyMessage');
@@ -693,18 +717,25 @@
                         <span class="item-name">${escapeHtml(item.name)}</span>
                     </div>
                     <div class="price-tag">
-                        <span class="price-symbol">★</span>
-                        <span class="item-price">{item.price.toLocaleString() АР}</span>
-                        <span style="font-size:12px; margin-left:4px;">min price</span>
+                        <span class="price-symbol">💎 АР</span>
+                        <span class="item-price">${item.price.toLocaleString()}</span>
+                        <span style="font-size:11px; margin-left:4px; color:#aaa;">min</span>
                     </div>
                 </div>
             `;
         }).join('');
     }
 
-    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+    function escapeHtml(str) { 
+        return str.replace(/[&<>]/g, function(m){
+            if(m==='&') return '&amp;';
+            if(m==='<') return '&lt;';
+            if(m==='>') return '&gt;';
+            return m;
+        }); 
+    }
 
-    // Filters event
+    // фильтры
     document.querySelectorAll('.filter-chip').forEach(chip => {
         chip.addEventListener('click', function() {
             document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
@@ -719,32 +750,29 @@
         renderItems();
     });
 
-    // Suggest to discord function
-    function suggestToDiscord() {
-        window.open("https://discord.gg/ktC6dNVxDC", "_blank");
+    // Ссылка на дискорд юзера в пустом состоянии (уже есть в пустом сообщении)
+    const suggestUserLink = document.getElementById('suggestUserLink');
+    if(suggestUserLink) {
+        suggestUserLink.addEventListener('click', (e) => {
+            window.open('https://discord.com/users/702417939000721421', '_blank');
+        });
     }
-    document.getElementById('suggestLink')?.addEventListener('click', (e) => { e.preventDefault(); suggestToDiscord(); });
-    document.getElementById('mobileSuggest')?.addEventListener('click', (e) => { e.preventDefault(); suggestToDiscord(); closeDrawer(); });
-    const suggestEmpty = document.getElementById('suggestEmptyBtn');
-    if(suggestEmpty) suggestEmpty.addEventListener('click', () => suggestToDiscord());
-    const emptyStrong = document.querySelector('#emptyMessage strong');
-    if(emptyStrong) emptyStrong.addEventListener('click', () => suggestToDiscord());
 
-    // mobile drawer logic
+    // мобильное меню
     const mobileToggle = document.getElementById('mobileMenuToggle');
     const drawer = document.getElementById('mobileDrawer');
     const closeDrawerBtn = document.getElementById('closeDrawer');
     function openDrawer() { drawer.classList.add('open'); }
     function closeDrawer() { drawer.classList.remove('open'); }
-    mobileToggle?.addEventListener('click', openDrawer);
-    closeDrawerBtn?.addEventListener('click', closeDrawer);
+    if(mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+    if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
     document.querySelectorAll('.mobile-drawer a').forEach(link => {
         link.addEventListener('click', (e) => {
             if(link.getAttribute('href')?.startsWith('#')) closeDrawer();
         });
     });
 
-    // scroll top
+    // скролл топ
     const scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {
         if(window.scrollY > 400) scrollBtn.classList.add('visible');
@@ -752,7 +780,7 @@
     });
     scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // stars generation
+    // звезды
     function generateStars() {
         const starsDiv = document.getElementById('starfield');
         const count = window.innerWidth < 700 ? 45 : 110;
@@ -769,8 +797,6 @@
         }
     }
     generateStars();
-
-    // initial render
     renderItems();
 </script>
 </body>
