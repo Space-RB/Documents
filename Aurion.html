@@ -617,62 +617,50 @@
     <button class="scroll-top-btn" id="scrollTopBtn">↑</button>
 
     <script>
-        // Товары: название, категория (для фильтрации), отображаемая категория, цена
-        const items = [
-            { name: "Древняя книга заклинаний (Том I)", filterCat: "books", displayCat: "📖 КНИГИ", price: 2450 },
-            { name: "Чародейский фолиант: Огненный всполох", filterCat: "books", displayCat: "📖 КНИГИ", price: 890 },
-            { name: "Гримуар теней", filterCat: "books", displayCat: "📖 КНИГИ", price: 3200 },
-            { name: "Книга рун: Скорость", filterCat: "books", displayCat: "📖 КНИГИ", price: 550 },
-            { name: "Шаблон: Клинок разрушителя", filterCat: "templates", displayCat: "📐 ШАБЛОНЫ", price: 1750 },
-            { name: "Шаблон: Элитный нагрудник", filterCat: "templates", displayCat: "📐 ШАБЛОНЫ", price: 2250 },
-            { name: "Шаблон: Кольцо власти", filterCat: "templates", displayCat: "📐 ШАБЛОНЫ", price: 3100 },
-            { name: "Эфирный блок", filterCat: "blocks", displayCat: "🧱 БЛОКИ", price: 320 },
-            { name: "Светокамень (x64)", filterCat: "blocks", displayCat: "🧱 БЛОКИ", price: 890 },
-            { name: "Небесный кирпич", filterCat: "blocks", displayCat: "🧱 БЛОКИ", price: 450 },
-            { name: "Обсидиановая плита", filterCat: "blocks", displayCat: "🧱 БЛОКИ", price: 210 },
-            { name: "Кирка Авроры", filterCat: "tools", displayCat: "🔧 ОРУДИЕ", price: 4950 },
-            { name: "Эликсирная фляга бесконечности", filterCat: "tools", displayCat: "🔧 ОРУДИЕ", price: 1220 },
-            { name: "Магический посох землекопа", filterCat: "tools", displayCat: "🔧 ОРУДИЕ", price: 3450 },
-            { name: "Меч Рассвета", filterCat: "items", displayCat: "📦 ПРЕДМЕТЫ", price: 7800 },
-            { name: "Арбалет гроз", filterCat: "items", displayCat: "📦 ПРЕДМЕТЫ", price: 4300 },
-            { name: "Кинжал теней", filterCat: "items", displayCat: "📦 ПРЕДМЕТЫ", price: 2980 },
-            { name: "Посох Ледяного Дракона", filterCat: "items", displayCat: "📦 ПРЕДМЕТЫ", price: 12400 },
-            { name: "Шлем небесного стража", filterCat: "armor", displayCat: "🛡️ БРОНЯ", price: 3600 },
-            { name: "Нагрудник из драконьей чешуи", filterCat: "armor", displayCat: "🛡️ БРОНЯ", price: 8250 },
-            { name: "Поножи призрачного странника", filterCat: "armor", displayCat: "🛡️ БРОНЯ", price: 2750 },
-            { name: "Башмаки проворства", filterCat: "armor", displayCat: "🛡️ БРОНЯ", price: 1890 },
-            { name: "Амулет удачи (эпический)", filterCat: "other", displayCat: "✨ ПРОЧЕЕ", price: 999 },
-            { name: "Сумка алхимика (32 слота)", filterCat: "other", displayCat: "✨ ПРОЧЕЕ", price: 1450 },
-            { name: "Свиток телепортации (5 шт)", filterCat: "other", displayCat: "✨ ПРОЧЕЕ", price: 780 },
-            { name: "Талисман времени", filterCat: "other", displayCat: "✨ ПРОЧЕЕ", price: 2750 }
-        ];
-
-        document.getElementById('totalItemsCount').innerText = items.length;
-
-        // Таймер с 22.03.2026 21:00 до секунд
-        function updateTimer() {
-            const start = new Date(2026, 2, 22, 21, 0, 0);
-            const now = new Date();
-            const diff = Math.floor((now - start) / 1000);
-            if (diff < 0) {
-                document.getElementById('timerDisplay').innerHTML = "0д 0ч 0м 0с";
-                return;
-            }
-            const days = Math.floor(diff / 86400);
-            const hours = Math.floor((diff % 86400) / 3600);
-            const mins = Math.floor((diff % 3600) / 60);
-            const secs = diff % 60;
-            document.getElementById('timerDisplay').innerHTML = `${days}д ${hours}ч ${mins}м ${secs}с`;
-        }
-        updateTimer();
-        setInterval(updateTimer, 1000);
-
+        // Глобальная переменная для хранения всех товаров из JSON
+        let allItems = [];
+        
+        // Состояния фильтрации
         let showingAll = false;
         let currentSearch = "";
         let currentCategory = "all";
 
+        // Функция для загрузки данных из JSON файла
+        async function loadItemsFromJson() {
+            try {
+                const response = await fetch('Shop-list.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allItems = data;
+                
+                // Обновляем счетчик товаров
+                document.getElementById('totalItemsCount').innerText = allItems.length;
+                
+                // Рендерим товары
+                renderItems();
+                
+                // Скрываем экран загрузки
+                setTimeout(() => document.getElementById('loadingScreen').classList.add('hidden'), 600);
+            } catch (error) {
+                console.error('Ошибка загрузки Shop-list.json:', error);
+                document.getElementById('itemsTableBody').innerHTML = `
+                    <tr><td colspan="3" style="text-align: center; padding: 60px 20px; color: #ef4444;">
+                        ⚠️ Ошибка загрузки данных!<br>
+                        <small style="color: #9ca3af;">Файл Shop-list.json не найден или поврежден. Проверьте наличие файла в той же папке.</small>
+                    </td></tr>
+                `;
+                document.getElementById('noResultsMessage').style.display = 'none';
+                document.getElementById('showMoreBtn').style.display = 'none';
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }
+        }
+
         function renderItems() {
-            let filtered = items.filter(item => {
+            if (allItems.length === 0) return;
+            
+            let filtered = allItems.filter(item => {
                 const matchCat = currentCategory === "all" || item.filterCat === currentCategory;
                 const matchSearch = item.name.toLowerCase().includes(currentSearch.toLowerCase());
                 return matchCat && matchSearch;
@@ -718,38 +706,57 @@
             });
         }
         
-        // Поиск
-        document.getElementById('itemSearch').addEventListener('input', (e) => {
-            currentSearch = e.target.value;
-            showingAll = false;
-            renderItems();
-        });
+        // Таймер с 22.03.2026 21:00
+        function updateTimer() {
+            const start = new Date(2026, 2, 22, 21, 0, 0);
+            const now = new Date();
+            const diff = Math.floor((now - start) / 1000);
+            if (diff < 0) {
+                document.getElementById('timerDisplay').innerHTML = "0д 0ч 0м 0с";
+                return;
+            }
+            const days = Math.floor(diff / 86400);
+            const hours = Math.floor((diff % 86400) / 3600);
+            const mins = Math.floor((diff % 3600) / 60);
+            const secs = diff % 60;
+            document.getElementById('timerDisplay').innerHTML = `${days}д ${hours}ч ${mins}м ${secs}с`;
+        }
         
-        // Категории
-        document.querySelectorAll('.cat-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentCategory = btn.getAttribute('data-cat');
+        // Инициализация после загрузки DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            // Загружаем данные из JSON
+            loadItemsFromJson();
+            
+            // Запускаем таймер
+            updateTimer();
+            setInterval(updateTimer, 1000);
+            
+            // Поиск
+            document.getElementById('itemSearch').addEventListener('input', (e) => {
+                currentSearch = e.target.value;
                 showingAll = false;
                 renderItems();
             });
+            
+            // Категории
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.getAttribute('data-cat');
+                    showingAll = false;
+                    renderItems();
+                });
+            });
+            
+            // Кнопка показать все
+            document.getElementById('showMoreBtn').addEventListener('click', () => {
+                showingAll = !showingAll;
+                renderItems();
+            });
         });
-        
-        // Кнопка показать все
-        document.getElementById('showMoreBtn').addEventListener('click', () => {
-            showingAll = !showingAll;
-            renderItems();
-        });
-        
-        renderItems();
 
-        // Loading screen
-        window.addEventListener('load', () => {
-            setTimeout(() => document.getElementById('loadingScreen').classList.add('hidden'), 600);
-        });
-
-        // Stars
+        // Stars generation
         (function() {
             const starsDiv = document.getElementById('stars');
             const count = window.innerWidth <= 768 ? 35 : 100;
