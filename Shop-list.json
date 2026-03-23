@@ -1,9 +1,9 @@
 [
-    { "name": "1", "filterCat": "books", "displayCat": "📖 КНИГИ", "price": 1 },
-    { "name": "2", "filterCat": "templ", "displayCat": "📐 ШАБЛОНЫ", "price": 1 },
-    { "name": "3", "filterCat": "block", "displayCat": "🧱 БЛОКИ", "price": 1 },
-    { "name": "4", "filterCat": "tools", "displayCat": "🔧 ОРУДИЕ", "price": 1 },
-    { "name": "5", "filterCat": "items", "displayCat": "📦 ПРЕДМЕТЫ", "price": 1 },
-    { "name": "6", "filterCat": "armor", "displayCat": "🛡️ БРОНЯ", "price": 1},
-    { "name": "7", "filterCat": "other", "displayCat": "✨ ПРОЧЕЕ", "price":1  }
+    { "name": "", "filterCat": "books", "displayCat": "📖 КНИГИ", "price": 1 },
+    { "name": "", "filterCat": "templ", "displayCat": "📐 ШАБЛОНЫ", "price": 1 },
+    { "name": "", "filterCat": "block", "displayCat": "🧱 БЛОКИ", "price": 1 },
+    { "name": "", "filterCat": "tools", "displayCat": "🔧 ОРУДИЕ", "price": 1 },
+    { "name": "", "filterCat": "items", "displayCat": "📦 ПРЕДМЕТЫ", "price": 1 },
+    { "name": "", "filterCat": "armor", "displayCat": "🛡️ БРОНЯ", "price": 1 },
+    { "name": "", "filterCat": "other", "displayCat": "✨ ПРОЧЕЕ", "price": 1 }
 ]
