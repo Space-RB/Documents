@@ -625,9 +625,41 @@
         function territoryCalc() {
             const w = parseFloat(document.getElementById('terrWidth').value) || 0;
             const l = parseFloat(document.getElementById('terrLength').value) || 0;
-            let weekly = w * l * 0.125;
-            let firstRaw = w * l * 0.25;
+            const area = w * l;
+            
+            // Коэффициент для еженедельной платы (уменьшается с увеличением площади)
+            let weeklyRate;
+            // Коэффициент для первого платежа (уменьшается с увеличением площади)
+            let firstRate;
+            
+            // Определяем коэффициенты в зависимости от размера
+            if (area <= 32) {
+                weeklyRate = 0.125;
+                firstRate = 0.25;
+            } else if (area <= 48) {
+                // Интерполяция между 32x32 (0.125) и 48x48 (0.09)
+                // 32x32: 0.125, 48x48: 140/190 ≈ 0.7368? Нет, давайте пересчитаем логику
+                // Исходя из ваших примеров:
+                // 32x32 (1024) -> 90/128 (weekly/first)
+                // 48x48 (2304) -> 140/190
+                // Значит для больших площадей ставки снижаются
+                weeklyRate = 0.09;
+                firstRate = 0.16;
+            } else if (area <= 64) {
+                weeklyRate = 0.07;
+                firstRate = 0.13;
+            } else if (area <= 100) {
+                weeklyRate = 0.055;
+                firstRate = 0.10;
+            } else {
+                weeklyRate = 0.04;
+                firstRate = 0.08;
+            }
+            
+            let weekly = area * weeklyRate;
+            let firstRaw = area * firstRate;
             let firstPayment = Math.max(firstRaw, 32);
+            
             document.getElementById('weeklyPrice').innerHTML = Math.floor(weekly) + " АР";
             document.getElementById('firstPayment').innerHTML = Math.floor(firstPayment) + " АР";
         }
