@@ -1,9 +1,2486 @@
 [
-    { "name": "", "filterCat": "books", "displayCat": "📖 КНИГИ", "price": 1 },
-    { "name": "", "filterCat": "templ", "displayCat": "📐 ШАБЛОНЫ", "price": 1 },
-    { "name": "", "filterCat": "block", "displayCat": "🧱 БЛОКИ", "price": 1 },
-    { "name": "", "filterCat": "tools", "displayCat": "🔧 ОРУДИЕ", "price": 1 },
-    { "name": "", "filterCat": "items", "displayCat": "📦 ПРЕДМЕТЫ", "price": 1 },
-    { "name": "", "filterCat": "armor", "displayCat": "🛡️ БРОНЯ", "price": 1 },
-    { "name": "", "filterCat": "other", "displayCat": "✨ ПРОЧЕЕ", "price": 1 }
+    {
+        "name": "Книга и перо",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Бич членистоногих 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Бесконечность",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Быстрая перезарядка 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Взрывоустойчивость 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Воспламенение",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Верность 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Везучий рыбак 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Громовержец",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Добыча 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Заговор огня 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Защита 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Защита от снарядов 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Ледоход 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Небесная кара 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Невесомость 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Острота 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Отдача 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Откидывание 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Огнеупорность 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Подводник",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Подводная ходьба 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Подводное дыхание 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Починка",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Порыв ветра 1",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Порыв ветра 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Порыв ветра 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Проворство 1",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Проворство 2",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Проворство 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Пробитие 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Пронзатель 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Пронзающая стрела 4",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Прочность 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Проклятие несъемности",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Проклятие утраты",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Плотность 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Приманка 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Разящий клинок 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Рывок 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Сила 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Скорость души 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Тройной выстрел",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Тягун 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Удача 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Шёлковое касание",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Шипы 3",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Книга) Эффективность 5",
+        "filterCat": "books",
+        "displayCat": "📖 КНИГИ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Берег",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Вождь",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Вредина",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Дебри",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Дюна",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Искатель",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Незеритовое улучшение",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Око",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Ось",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Поток",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Прилив",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Ребро",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Рыло",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Собиратель",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Скульптор",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Страж",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Тишина",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Хранитель",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "(Шаблон) Шпиль",
+        "filterCat": "templ",
+        "displayCat": "📐 ШАБЛОНЫ",
+        "price": 1
+    },
+    {
+        "name": "Бамбуковая мозаика",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок бамбука",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок мёда",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок пчелиных сот",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок слизи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок снега",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Блок сушёной ламинарии",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бочка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бревно бледного дуба",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бревно тёмного дуба",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бревно троопического дерева",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Булыжник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Верстак",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Глина",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Глубинносланцевые кирпичи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Глубинный сланец",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гранит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Грязь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Грязные мангровые корни",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Дёрн",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Диорит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Доски из бледного дуба",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Доски из тёмного дуба",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Доски из тропического дерева",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Дубовое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Дубовые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Еловое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Еловые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Железные прутья",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Замшелый булыжник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Земля",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кальцит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Каменистая земля",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Камнерез",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Камень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кварцевый блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кирпичи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Книжная полка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Колокол",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Колотый глубинный сланец",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Компостница",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Коптильня",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Корнистая земля",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Костный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Котёл",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Красный Песок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Лёд",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Лазуритоовый блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Липкий поршень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Магма",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Магнетит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Маяк",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Медный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Медные плиты",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Медный ступеньки",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Мицелий",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Морской фонарь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Наковальня",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Натёчный камень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Наблюдатель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Незерак",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Незеритовый блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Нотный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Обсидиан",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Ограда из полированного туфа",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Ограда из туфоовогоо кирпича",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Песок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Песок душ",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Песчаник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Печка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Пиленый песчаник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плавильная печь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плачущий обсидиан",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плита из полированного туф",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плита из туфового кирпича",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плотная грязь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плотный лёд",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Подзол",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Подмостки",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полки",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый андезит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый базальт",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый глубинный сланец",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый гранит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый диорит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Полированый туф",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Поршень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Почва душ",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Призмарин",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Призмариновые кирпичи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Проигрыватель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Пурпур",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Пчелиное гнездо",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновый блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновый компаратор",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновый повторитель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновая лампа",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Резной песчаник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Резной туф",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Резные туфовые кирпичи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Резная книжная полка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Скалк",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Скалковый катализатор",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Скалковый крикун",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Скалк-сенсор",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Смоляной блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стекло",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стеклянная панель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стол картографа",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стол кузница",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стол лучника",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Ступеньки из поолированного туфа",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Ступеньки из туфового кирпича",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Сундук",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Тёмный призмарин",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Терракота",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Тонирооованное стекло",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Точило",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Туф",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Туфовая ограда",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Туфовая плита",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Туфовые ступеньги",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Туфоовые кирпичи",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Тыква",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Угольный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Улей",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Факел",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Факел душ",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Фонарь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Цветная шерсть",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Чародейский стол",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Шалкеровый ящик (шалкер)",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 1
+    },
+    {
+        "name": "Шерсть",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Эндер-сундук",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Эндерняк",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Яйцо дракона",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 1
+    },
+    {
+        "name": "Базальт",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гладкий базальт",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гладкий камень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гладкий кварц",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гладкий красный песчаник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Гладкий песчаник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Дверь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Забор",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Калитка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кнопка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Люк",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Плита",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Андезит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Багровый стебель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Багровый нилий",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Багровые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бамбук",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Бамбуковые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Берёзовое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Берёзовые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Вишнёвое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Вишнёвые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Воронка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Громооотвод",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Датчик дневного света",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Динамит",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Доски из тропического дерева",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Железная цепь",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Зельеварка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Искажённый нилий",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Искажённый стебель",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Искажённые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кактус",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Коралл",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Крюк",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Лианы",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Мангроовое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Мангровые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Мангровые корни",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Медный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Медный факел",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Откалиброванный скалк-сенсор",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Паутина",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновый факел",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Рельсы",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Рычаг",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Свет",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Светокамень",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Светящийся лишайник",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Стержень Энда",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Табличка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Узорачатая ваза",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Цветок хоруса",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Энергорельсы",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Акациевые доски",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Акациевое бревно",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Арбуз",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Аметистовый блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Губка",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Железный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Золотой блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Изумрудный блок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Алмазный блоок",
+        "filterCat": "block",
+        "displayCat": "🧱 БЛОКИ",
+        "price": 64
+    },
+    {
+        "name": "Кисть",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Компас",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Лук",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Мешок",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Подзорная труба",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Рамка",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Рыболовная удочка",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Светящаяся рамка",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Трезубец",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Удочка",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Часы",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Булава",
+        "filterCat": "tools",
+        "displayCat": "🔧 ОРУДИЕ",
+        "price": 1
+    },
+    {
+        "name": "Аксолотль в ведре",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Алмаз",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Арбуз",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Багроовый нилий",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Бамбук",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Бирка",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Блок мёда",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Блок слизи",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Бумага",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Бутылочка",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Бутылочка мёда",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Ведро",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Вихревой стержень",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Глина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Голова визер-скелета",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Голова дракона",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Голова зомби",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Голова крипера",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Голова пиглина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Головастик в ведре",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Губка",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Древесный уголь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Жареная говядина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Жареная курица",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Жареная свинина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Железная цепь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Железный слиток",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Железные прутья",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Зачарованное золотое яблоко",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Звезда Незера",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Золотая морковь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Золотое яблоко",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Золотой слиток",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Изумруд",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Искажённый нилий",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кактус",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Картофель",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кварц",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кирпич",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Книга",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кожа",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Комок глины",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Коралл",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кроличья лапка",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кристалл призмарина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Кристалл Энда",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Кусочек золота",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Лазурит",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Ламинария",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Лианы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Маринованный паучий глаз",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Медный слиток",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Морковть",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Морская трава",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Морской огурец",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Навершие булавы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Незерский кварц",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Незерский нарост",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Незеритовый лом",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Незеритовый слиток",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Нить",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Огненный заряд",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Огненный порошок",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Огненный стержень",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Око Эндера",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Осколок аметиста",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Осколок призмарина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Палка",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Панцырь шалкера",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Паутина",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Паучий глаз",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Перо",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Печеный картофель",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Плод хоруса",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Подзол",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Порох",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Прожаренный плод хоруса",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Пузырёк опыта",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Пшеница",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Раковина наутилуса",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Редстоуновая пыль",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Рог",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Рудное железо",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Рудная медь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Рудное золото",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец акации",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец берёзы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец бледного дуба",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец вишни",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец дуба",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец ели",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец тёмного дуба",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Саженец троопического дерева",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сахарный тростник",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Свёкла",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Светокаменная пыль",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Светящийся лишайник",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Светящийся чернильный мешок",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сгусток магмы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сгусток слизи",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сгусток смолы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Седло",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Семена пшеницы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сердце моря",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Слеза гаста",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Снежок",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Стейк",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Стрела",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Стручок кувшинницы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Сверкающий ломтик арбуза",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Тотем бессмертия",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Уголь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Фейерверк 1 ур.",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Фейерверк 2 ур.",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Фейерверк 3 ур.",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Хлеб",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Цветок кактуса",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Цветок хоруса",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Цветы",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Череп",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Черепаший панцирь",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Черепаший щиток",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Черепашье яйцо",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Чернильный мешок",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Элитры",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Эндер-жемчуг",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Яблоко",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Яйцо",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Яйцо нюхача",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 1
+    },
+    {
+        "name": "Заряд ветра",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Квампа",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Миска",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Тыквенный пирог",
+        "filterCat": "items",
+        "displayCat": "📦 ПРЕДМЕТЫ",
+        "price": 64
+    },
+    {
+        "name": "Черепаший панцирь",
+        "filterCat": "armor",
+        "displayCat": "🛡️ БРОНЯ",
+        "price": 1
+    },
+    {
+        "name": "Кувшынка",
+        "filterCat": "other",
+        "displayCat": "✨ ПРОЧЕЕ",
+        "price": 64
+    },
+    {
+        "name": "Высохший гаст",
+        "filterCat": "other",
+        "displayCat": "✨ ПРОЧЕЕ",
+        "price": 1
+    }
 ]
