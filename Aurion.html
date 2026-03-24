@@ -627,17 +627,19 @@
             const l = parseFloat(document.getElementById('terrLength').value) || 0;
             const area = w * l;
             
-            let baseWeeklyRate = 0.125;
-            let baseFirstRate = 0.25;
-        
-            let reductionFactor = Math.min(1, 100 / (area + 50));
+            let weekly, firstPayment;
             
-            let weeklyRate = Math.max(baseWeeklyRate * reductionFactor, 0.04);
-            let firstRate = Math.max(baseFirstRate * reductionFactor, 0.08);
-            
-            let weekly = area * weeklyRate;
-            let firstRaw = area * firstRate;
-            let firstPayment = Math.max(firstRaw, 32);
+            if (area <= 1024) {
+                weekly = area * 0.08789;
+                firstPayment = Math.max(area * 0.125, 32);
+            } else if (area <= 2304) {
+                weekly = area * 0.06076;
+                firstPayment = Math.max(area * 0.08247, 32);
+            } else {
+                const reductionFactor = 2304 / area;
+                weekly = area * (0.06076 * reductionFactor);
+                firstPayment = Math.max(area * (0.08247 * reductionFactor), 32);
+            }
             
             document.getElementById('weeklyPrice').innerHTML = Math.floor(weekly) + " АР";
             document.getElementById('firstPayment').innerHTML = Math.floor(firstPayment) + " АР";
