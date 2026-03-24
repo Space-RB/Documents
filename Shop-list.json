@@ -1158,10 +1158,10 @@
         "price": 32
     },
     {
-        "name": "Факел",
+        "name": "Факел (64x)",
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
-        "price": 64
+        "price": 1
     },
     {
         "name": "Факел душ (64x)",
