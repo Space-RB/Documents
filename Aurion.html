@@ -627,34 +627,13 @@
             const l = parseFloat(document.getElementById('terrLength').value) || 0;
             const area = w * l;
             
-            // Коэффициент для еженедельной платы (уменьшается с увеличением площади)
-            let weeklyRate;
-            // Коэффициент для первого платежа (уменьшается с увеличением площади)
-            let firstRate;
+            let baseWeeklyRate = 0.125;
+            let baseFirstRate = 0.25;
+        
+            let reductionFactor = Math.min(1, 100 / (area + 50));
             
-            // Определяем коэффициенты в зависимости от размера
-            if (area <= 32) {
-                weeklyRate = 0.125;
-                firstRate = 0.25;
-            } else if (area <= 48) {
-                // Интерполяция между 32x32 (0.125) и 48x48 (0.09)
-                // 32x32: 0.125, 48x48: 140/190 ≈ 0.7368? Нет, давайте пересчитаем логику
-                // Исходя из ваших примеров:
-                // 32x32 (1024) -> 90/128 (weekly/first)
-                // 48x48 (2304) -> 140/190
-                // Значит для больших площадей ставки снижаются
-                weeklyRate = 0.09;
-                firstRate = 0.16;
-            } else if (area <= 64) {
-                weeklyRate = 0.07;
-                firstRate = 0.13;
-            } else if (area <= 100) {
-                weeklyRate = 0.055;
-                firstRate = 0.10;
-            } else {
-                weeklyRate = 0.04;
-                firstRate = 0.08;
-            }
+            let weeklyRate = Math.max(baseWeeklyRate * reductionFactor, 0.04);
+            let firstRate = Math.max(baseFirstRate * reductionFactor, 0.08);
             
             let weekly = area * weeklyRate;
             let firstRaw = area * firstRate;
