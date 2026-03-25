@@ -661,10 +661,18 @@
             
             let weekly = area * weeklyRate;
             let firstRaw = area * firstRate;
-            let firstPayment = Math.max(firstRaw, 32);
+            
+            if (weekly < 16) {
+                weekly = 16;
+                let firstPayment = Math.max(firstRaw, 32);
+                firstPayment = Math.max(firstPayment, weekly * 2);
+                document.getElementById('firstPayment').innerHTML = Math.floor(firstPayment) + " АР";
+            } else {
+                let firstPayment = Math.max(firstRaw, 32);
+                document.getElementById('firstPayment').innerHTML = Math.floor(firstPayment) + " АР";
+            }
             
             document.getElementById('weeklyPrice').innerHTML = Math.floor(weekly) + " АР";
-            document.getElementById('firstPayment').innerHTML = Math.floor(firstPayment) + " АР";
         }
 
         document.addEventListener('DOMContentLoaded', () => {
