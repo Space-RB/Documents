@@ -777,7 +777,7 @@
         "name": "Незеритовый блок (1x)",
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
-        "price": 180
+        "price": 162
     },
     {
         "name": "Нотный блок (64x)",
@@ -957,7 +957,7 @@
         "name": "Пчелиное гнездо (64x)",
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
-        "price": 20
+        "price": 17
     },
     {
         "name": "Редстоуновый блок (64x)",
@@ -1995,13 +1995,13 @@
         "name": "Незеритовый лом (1x)",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 5
+        "price": 4
     },
     {
         "name": "Незеритовый слиток",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 20
+        "price": 18
     },
     {
         "name": "Нить (64x)",
