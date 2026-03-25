@@ -777,7 +777,7 @@
         "name": "Незеритовый блок (1x)",
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
-        "price": 108
+        "price": 180
     },
     {
         "name": "Нотный блок (64x)",
@@ -1995,13 +1995,13 @@
         "name": "Незеритовый лом (1x)",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 3
+        "price": 5
     },
     {
         "name": "Незеритовый слиток",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 12
+        "price": 20
     },
     {
         "name": "Нить (64x)",
