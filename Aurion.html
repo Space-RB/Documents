@@ -579,7 +579,7 @@
 
     <script>
         let allItems = [], showingAll = false, currentSearch = "", currentCategory = "all";
-        let sortField = null, sortOrder = 'asc'; // asc или desc
+        let sortField = null, sortOrder = 'asc';
 
         async function loadItemsFromJson() {
             try {
@@ -681,7 +681,7 @@
             document.getElementById('itemSearch').addEventListener('input', (e) => { currentSearch = e.target.value; showingAll = false; renderItems(); });
             document.querySelectorAll('.cat-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentCategory = btn.getAttribute('data-cat'); showingAll=false; renderItems(); }); });
             document.getElementById('showMoreBtn').addEventListener('click', () => { showingAll = !showingAll; renderItems(); });
-            // Сортировка
+
             const sortName = document.getElementById('sortName'); const sortCat = document.getElementById('sortCat'); const sortPrice = document.getElementById('sortPrice');
             const applySort = (field) => {
                 if(sortField === field) sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
@@ -695,10 +695,10 @@
             sortName.addEventListener('click', () => applySort('name'));
             sortCat.addEventListener('click', () => applySort('displayCat'));
             sortPrice.addEventListener('click', () => applySort('price'));
-            // Калькулятор территории
+
             const wInput = document.getElementById('terrWidth'), lInput = document.getElementById('terrLength');
             if(wInput && lInput) { wInput.addEventListener('input', territoryCalc); lInput.addEventListener('input', territoryCalc); territoryCalc(); }
-            // Dropdown функционал
+
             const customSelect = document.querySelector('.custom-select');
             if(customSelect){
                 const trigger = customSelect.querySelector('.select-trigger');
