@@ -432,10 +432,10 @@
         "price": 4
     },
     {
-        "name": "Блок слизи (64x)",
+        "name": "Блок слизи (8x)",
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
-        "price": 2
+        "price": 1
     },
     {
         "name": "Блок снега (32x)",
@@ -1372,12 +1372,6 @@
         "filterCat": "block",
         "displayCat": "🧱 БЛОКИ",
         "price": 2
-    },
-    {
-        "name": "Железная цепь (64x)",
-        "filterCat": "block",
-        "displayCat": "🧱 БЛОКИ",
-        "price": 3
     },
     {
         "name": "Зельеварка (64x)",
