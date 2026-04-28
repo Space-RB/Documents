@@ -39,7 +39,7 @@
         "name": "Верность 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Везучий рыбак 3",
@@ -57,7 +57,7 @@
         "name": "Добыча 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Заговор огня 2",
@@ -69,37 +69,37 @@
         "name": "Защита 4",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Защита от снарядов 4",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 1
     },
     {
         "name": "Ледоход 2",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 2
+        "price": 1
     },
     {
         "name": "Небесная кара 5",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 2
+        "price": 1
     },
     {
         "name": "Невесомость 4",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Острота 5",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Отдача 2",
@@ -117,7 +117,7 @@
         "name": "Огнеупорность 4",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 2
+        "price": 1
     },
     {
         "name": "Подводник",
@@ -129,19 +129,19 @@
         "name": "Подводная ходьба 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Подводное дыхание 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Починка",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Порыв ветра 1",
@@ -177,13 +177,13 @@
         "name": "Проворство 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 48
+        "price": 60
     },
     {
         "name": "Пробитие 4",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Пронзатель 5",
@@ -201,7 +201,7 @@
         "name": "Прочность 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Проклятие несъемности",
@@ -219,31 +219,31 @@
         "name": "Плотность 5",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Приманка 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 2
+        "price": 1
     },
     {
         "name": "Разящий клинок 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Рывок 3",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 3
+        "price": 2
     },
     {
         "name": "Сила 5",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Скорость души 2",
@@ -279,7 +279,7 @@
         "name": "Шёлковое касание",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Шипы 3",
@@ -291,7 +291,7 @@
         "name": "Эффективность 5",
         "filterCat": "books",
         "displayCat": "📖 КНИГИ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Берег",
@@ -1989,7 +1989,7 @@
         "name": "Незеритовый слиток",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 18
+        "price": 16
     },
     {
         "name": "Нить (64x)",
@@ -2079,7 +2079,7 @@
         "name": "Порох (64x)",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 4
+        "price": 2
     },
     {
         "name": "Прожаренный плод хоруса (64x)",
@@ -2403,7 +2403,7 @@
         "name": "Квампа (64x)",
         "filterCat": "items",
         "displayCat": "📦 ПРЕДМЕТЫ",
-        "price": 2
+        "price": 4
     },
     {
         "name": "Миска (64x)",
